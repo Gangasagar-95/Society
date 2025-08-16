@@ -30,7 +30,7 @@ class Powercut extends StatelessWidget {
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-        leading: Icon(Icons.arrow_back),
+       // leading: Icon(Icons.arrow_back),
         actions: [
           Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
         ],

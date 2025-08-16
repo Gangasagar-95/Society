@@ -7,8 +7,7 @@ import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/custom_circle.dart';
 import 'package:ss/custom_widget/dashbour_blue_container.dart';
 import 'package:ss/custom_widget/outline_button_dashboard.dart';
-import 'package:ss/screens/maid_screen.dart';
-import 'package:ss/screens/tabs.dart';
+
 
 class Dashscreen extends StatelessWidget {
   const Dashscreen({super.key});
