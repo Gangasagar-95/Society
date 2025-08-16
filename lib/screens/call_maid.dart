@@ -27,7 +27,7 @@ class CallMaid extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-        leading: Icon(Icons.menu),
+        leading: Icon(Icons.arrow_back),
         actions: [
           Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
         ],

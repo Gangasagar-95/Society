@@ -16,6 +16,8 @@ class Tabs extends StatefulWidget {
 
 class TabsState extends State<Tabs> {
   int _selectedIndex = 0;
+  //Widget? _subScreen;
+
   final List<Widget> _Screens = [
     Dashscreen(),
     Complaints(),
@@ -32,10 +34,24 @@ class TabsState extends State<Tabs> {
     });
   }
 
+  // void openSubScreen(Widget screen) {
+  //   setState(() {
+  //     _subScreen = screen;
+  //   });
+  // }
+
+  // // 👉 Go back to tab's main screen
+  // void closeSubScreen() {
+  //   setState(() {
+  //     _subScreen = null;
+  //   });
+  // }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _Screens[_selectedIndex],
+      body: //_subScreen ??
+       _Screens[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Appcolor.bgcolor,

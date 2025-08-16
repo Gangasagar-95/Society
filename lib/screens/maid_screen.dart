@@ -8,6 +8,7 @@ import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:ss/custom_widget/icon_button.dart';
+//import 'package:ss/screens/tabs.dart';
 //import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -37,7 +38,8 @@ class MaidScreen extends StatelessWidget {
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-        leading: Icon(Icons.menu),
+        leading: 
+        Icon(Icons.arrow_back),
         actions: [
           Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
         ],

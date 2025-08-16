@@ -17,7 +17,7 @@ class Profile extends StatelessWidget {
         backgroundColor: Appcolor.bgcolor,
 
         leading: IconButton(
-                icon: Icon(Icons.menu, color: Colors.black),
+                icon: Icon(Icons.arrow_back),
                 onPressed: () {
                   Navigator.of(context).push(
                     PageRouteBuilder(
