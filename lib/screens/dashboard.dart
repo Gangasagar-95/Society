@@ -59,27 +59,35 @@ class Dashscreen extends StatelessWidget {
                         ),
                         SizedBox(width: 15),
                         CustomCircle(
-                          label: "Carpainter",
+                          label: "Carpenter",
                           image: "assets/images/carpainter.jpg",
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Approutes.callcarpenter);
+                          },
                         ),
                         SizedBox(width: 15),
                         CustomCircle(
                           label: "Appliance Re...",
                           image: "assets/images/repair2.jpg",
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Approutes.callrepair);
+                          },
                         ),
                         SizedBox(width: 15),
                         CustomCircle(
-                          label: "pest Controll",
+                          label: "pest Control",
                           image: "assets/images/pest3.jpg",
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Approutes.callpest);
+                          },
                         ),
                         SizedBox(width: 15),
                         CustomCircle(
                           label: "painter",
                           image: "assets/images/paint3.jpg",
-                          onTap: () {},
+                          onTap: () {
+                            Get.toNamed(Approutes.callpainter);
+                          },
                         ),
                       ],
                     ),

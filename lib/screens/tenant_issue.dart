@@ -91,7 +91,7 @@ class Tenantissue extends StatelessWidget {
                 children: [
                   CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
                   SizedBox(width: 10,),
-                  CallButton(label: "House owner", onPressed: () => _makeDirectCall("02462234405"),),  
+                  CallButton(label: "house owner", onPressed: () => _makeDirectCall("02462234405"),),  
                 ],
               ),
               SizedBox(height: 20,)

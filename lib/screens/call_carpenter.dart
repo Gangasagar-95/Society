@@ -3,10 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/contact_card.dart';
+import 'package:ss/custom_widget/search_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CallMaid extends StatelessWidget {
-  const CallMaid({super.key});
+class CallCarpenter extends StatelessWidget {
+  const CallCarpenter({super.key});
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
@@ -28,8 +29,8 @@ class CallMaid extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-       // leading: Icon(Icons.arrow_back),
-       title: Text("Maid",style: GoogleFonts.josefinSans(
+        //leading: Icon(Icons.arrow_back),
+        title: Text("Carpenter",style: GoogleFonts.josefinSans(
                   fontSize: 23,
                   fontWeight: FontWeight.w600,
                   color: Appcolor.primarycolor,
@@ -48,34 +49,36 @@ class CallMaid extends StatelessWidget {
         SingleChildScrollView(
           child: Column(
             children: [
+              CustomSearchButton(text: "search", onPressed: (){}),
+              SizedBox(height: 10,),
               ContactCard(
-                name: "Sunita Sathe",
-                role: "Cook",
-                availableTime: "9am to 4pm",
+                name: "Sunil Rathod",
+                role: "Carpenter",
+                availableTime: "9am to 9pm",
                 address: "nanded",
                 onCallTap: () => _makeDirectCall("+917822027057"),
               ),
               SizedBox(height: 10),
               ContactCard(
-                name: "Rupali Joshi",
-                role: "Utensils",
-                availableTime: "8am to 1pm",
+                name: "Gokul Devke",
+                role: "Carpenter",
+                availableTime: "12pm to 10pm",
                 address: "nanded",
                 onCallTap: () => _makeDirectCall("+917822027057"),
               ),
               SizedBox(height: 10),
               ContactCard(
-                name: "Swati Dahale",
-                role: "Sweeper",
+                name: "Vijay Tiwari",
+                role: "Carpenter",
                 availableTime: "11am to 4pm",
                 address: "nanded",
                 onCallTap: () => _makeDirectCall("+917822027057"),
               ),
               SizedBox(height: 10),
               ContactCard(
-                name: "Vaishali Rampatwar",
-                role: "Cooker",
-                availableTime: "9am to 8pm",
+                name: "Swapnil Rathi",
+                role: "Carpenter",
+                availableTime: "9am to 10pm",
                 address: "nanded",
                 onCallTap: () => _makeDirectCall("+917822027057"),
               ),

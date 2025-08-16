@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/contact_card.dart';
@@ -28,6 +29,11 @@ class CallPlumber extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
+        title: Text("Plumber",style: GoogleFonts.josefinSans(
+                  fontSize: 23,
+                  fontWeight: FontWeight.w600,
+                  color: Appcolor.primarycolor,
+                ),),
         actions: [
           Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
         ],

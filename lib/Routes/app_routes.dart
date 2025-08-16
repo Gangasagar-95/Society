@@ -22,6 +22,10 @@ class Approutes {
   static const String powercut = "/powercut_schedule";
   static const String callplumber = "/call_plumber";
   static const String callmaid = "/call_maid";
+  static const String callcarpenter = "/call_carpenter";
+  static const String callrepair = "/call_repair";
+  static const String callpest = "/call_pest";
+  static const String callpainter = "/call_painter";
 
 
 }

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ss/screens/call_carpenter.dart';
 import 'package:ss/screens/call_maid.dart';
+import 'package:ss/screens/call_painter.dart';
+import 'package:ss/screens/call_pest.dart';
 import 'package:ss/screens/call_plumber.dart';
+import 'package:ss/screens/call_repair.dart';
 import 'package:ss/screens/complaint.dart';
 import 'package:ss/screens/create_account_screen.dart';
 import 'package:ss/screens/dashboard.dart';
@@ -68,6 +72,11 @@ class MyApp extends StatelessWidget {
         "/powercut_schedule": (context) => Powercut(),
         "/call_plumber": (context) => CallPlumber(),
         "/call_maid": (context) => CallMaid(),
+        "/call_carpenter": (context) => CallCarpenter(),
+        "/call_repair": (context) => CallRepair(),
+        "/call_pest": (context) => CallPest(),
+        "/call_painter": (context) => CallPainter(),
+        
       },
     );
   }

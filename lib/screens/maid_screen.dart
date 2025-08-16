@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
+import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/call_button.dart';
 //import 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
@@ -94,7 +97,7 @@ class MaidScreen extends StatelessWidget {
               ),
 
               SizedBox(height: 10),
-              MyIconButton(label: "Search for maid", onPressed: (){}),
+              MyIconButton(label: "Search for maid", onPressed: (){Get.toNamed(Approutes.callmaid);}),
               SizedBox(height: 10,),
 
               Row(
