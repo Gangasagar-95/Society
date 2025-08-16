@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ss/Color/app_colors.dart';
+
+class ContactCard extends StatelessWidget {
+  final String name;
+  final String role;
+  final String availableTime;
+  final String towers;
+  final VoidCallback onCallTap;
+
+  const ContactCard({
+    super.key,
+    required this.name,
+    required this.role,
+    required this.availableTime,
+    required this.towers,
+    required this.onCallTap,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      margin: const EdgeInsets.symmetric(vertical: 8),
+      decoration: BoxDecoration(
+        color: Color(0xFFEDE4FF), // light purple
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Top Row: Name + Button
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                name,
+                style: GoogleFonts.josefinSans(
+                  fontSize: 25,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+              ElevatedButton(
+                onPressed: onCallTap,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.green,
+                  foregroundColor: Colors.white,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 8,
+                  ),
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(25),
+                  ),
+                ),
+                child: Text(
+                  "Call Now",
+                  style: GoogleFonts.josefinSans(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 6),
+          // Role
+          Text(
+            role,
+            style: GoogleFonts.josefinSans(
+              fontSize: 20,
+              fontWeight: FontWeight.w600,
+              color: Appcolor.primarycolor,
+            ),
+          ),
+          const SizedBox(height: 4),
+          // Available Time
+          Text(
+            "Available: $availableTime",
+            style: GoogleFonts.josefinSans(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+          // Towers
+          Text(
+            "Towers: $towers",
+            style: GoogleFonts.josefinSans(
+              fontSize: 18,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
