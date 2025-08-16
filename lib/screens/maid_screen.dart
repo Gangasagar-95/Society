@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
-import 'package:ss/custom_widget/call_container.dart';
+import 'package:ss/custom_widget/call_button.dart';
+//import 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 //import 'package:ss/custom_widget/drop_down.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/custom_widget/icon_button.dart';
 //import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -78,10 +80,10 @@ class MaidScreen extends StatelessWidget {
               CustomTextField(label: "Description", hint: "Complaint details"),
               SizedBox(height: 20),
               CustomButton(text: "Submit Complaint", onPressed: () {}),
-              SizedBox(height: 25),
+              SizedBox(height: 30),
 
               Text(
-                "Call Maid ?",
+                "Need help ?",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.josefinSans(
                   fontSize: 20,
@@ -90,29 +92,45 @@ class MaidScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 1),
+              SizedBox(height: 10),
+              MyIconButton(label: "Search for maid", onPressed: (){}),
+              SizedBox(height: 10,),
 
-              ContactCard(
-                name: "Sunita sathe",
-                role: "Sweeper",
-                availableTime: "8 AM to 8 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+917822027057"),
+              Row(
+                children: [
+                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
+                  SizedBox(width: 10,),
+                  CallButton(label: "Maid", onPressed: () => _makeDirectCall("+917822027057"),),  
+                ],
               ),
-              ContactCard(
-                name: "Kavita Kale",
-                role: "Cooker",
-                availableTime: "8 AM to 8 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+919860801358"),
-              ),
-              ContactCard(
-                name: "Nita Kamble",
-                role: "Sectatery",
-                availableTime: "8 AM to 8 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+918888131220"),
-              ),
+              SizedBox(height: 20,)
+
+
+              //ContactCard(
+              //   name: "Sunita sathe",
+              //   role: "Sweeper",
+              //   availableTime: "8 AM to 8 PM",
+              //   towers: "A,B,C",
+              //   onCallTap: () => _makeDirectCall("+917822027057"),
+              // ),
+              // ContactCard(
+              //   name: "Kavita Kale",
+              //   role: "Cooker",
+              //   availableTime: "8 AM to 8 PM",
+              //   towers: "A,B,C",
+              //   onCallTap: () => _makeDirectCall("+919860801358"),
+              // ),
+              // ContactCard(
+              //   name: "Nita Kamble",
+              //   role: "Sectatery",
+              //   availableTime: "8 AM to 8 PM",
+              //   towers: "A,B,C",
+              //   onCallTap: () => _makeDirectCall("+918888131220"),
+
+
+              // ),
+              
+              
             ],
           ),
         ),

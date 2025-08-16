@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+//import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
-import 'package:ss/Routes/app_routes.dart';
+//import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/notification_container.dart';
 import 'package:ss/screens/tabs.dart';
 

@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
-import 'package:ss/custom_widget/call_container.dart';
+import 'package:ss/custom_widget/call_button.dart';
+//import 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/custom_widget/icon_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Streetlight extends StatelessWidget {
@@ -74,7 +76,7 @@ class Streetlight extends StatelessWidget {
               SizedBox(height: 25),
 
               Text(
-                "Call Electrician/ Municipality ?",
+                "Need help ?",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.josefinSans(
                   fontSize: 20,
@@ -83,22 +85,45 @@ class Streetlight extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 1),
+              SizedBox(height: 10),
+              MyIconButton(label: "Search for electrician", onPressed: (){}),
+              SizedBox(height: 10,),
 
-              ContactCard(
-                name: "Ram Dhale",
-                role: "Muncipality",
-                availableTime: "8 AM to 9 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+917822027057"),
+              Row(
+                children: [
+                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
+                  SizedBox(width: 10,),
+                  CallButton(label: "Municipality", onPressed: () => _makeDirectCall("02462234405"),),  
+                ],
               ),
-              ContactCard(
-                name: "Raja Dhale",
-                role: "Electrician",
-                availableTime: "8 AM to 9 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+919860801358"),
-              ),
+              SizedBox(height: 20,)
+
+              // Text(
+              //   "Call Electrician/ Municipality ?",
+              //   textAlign: TextAlign.left,
+              //   style: GoogleFonts.josefinSans(
+              //     fontSize: 20,
+              //     fontWeight: FontWeight.w600,
+              //     color: Appcolor.pcolor,
+              //   ),
+              // ),
+
+              // SizedBox(height: 1),
+
+              // ContactCard(
+              //   name: "Ram Dhale",
+              //   role: "Muncipality",
+              //   availableTime: "8 AM to 9 PM",
+              //   towers: "A,B,C",
+              //   onCallTap: () => _makeDirectCall("+917822027057"),
+              // ),
+              // ContactCard(
+              //   name: "Raja Dhale",
+              //   role: "Electrician",
+              //   availableTime: "8 AM to 9 PM",
+              //   towers: "A,B,C",
+              //   onCallTap: () => _makeDirectCall("+919860801358"),
+              // ),
             ],
           ),
         ),

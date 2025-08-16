@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
-import 'package:ss/custom_widget/call_container.dart';
+import 'package:ss/custom_widget/call_button.dart';
+//ort 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+//import 'package:ss/custom_widget/icon_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class DogsScreen extends StatelessWidget {
@@ -76,7 +78,7 @@ class DogsScreen extends StatelessWidget {
               SizedBox(height: 25),
 
               Text(
-                "Call Municipality ?",
+                "Need help ?",
                 textAlign: TextAlign.left,
                 style: GoogleFonts.josefinSans(
                   fontSize: 20,
@@ -85,16 +87,18 @@ class DogsScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 1),
+              // SizedBox(height: 10),
+              // MyIconButton(label: "Search for electrician", onPressed: (){}),
+              SizedBox(height: 10,),
 
-              ContactCard(
-                name: "Manoj Rathod",
-                role: "Muncipality",
-                availableTime: "10 Am to 5 PM",
-                towers: "A,B,C",
-                onCallTap: () => _makeDirectCall("+917823064103"),
+              Row(
+                children: [
+                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
+                  SizedBox(width: 10,),
+                  CallButton(label: "Municipality", onPressed: () => _makeDirectCall("02462234405"),),  
+                ],
               ),
-
+              SizedBox(height: 20,)
               //
             ],
           ),

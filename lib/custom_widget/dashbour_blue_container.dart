@@ -1,17 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-// import 'package:society_mansi/Color/app_color.dart';
-// import 'package:society_mansi/Screen/complaints.dart';
-// import 'package:society_mansi/Screen/maid_screen.dart';
-// import 'package:society_mansi/Screen/notification.dart';
-// import 'package:society_mansi/Screen/profile.dart';
 import 'package:ss/Color/app_colors.dart';
-//import 'package:ss/custom_widget/notification_container.dart';
-import 'package:ss/screens/complaint.dart';
-//import 'package:ss/screens/dashboard.dart';
-//import 'package:ss/screens/maid_screen.dart';
-import 'package:ss/screens/notification_screen.dart';
-import 'package:ss/screens/profile_screen.dart';
 import 'package:ss/screens/tabs.dart';
 
 class CustomTopAppBar extends StatelessWidget {
