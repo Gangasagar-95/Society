@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ss/screens/call_maid.dart';
+import 'package:ss/screens/call_plumber.dart';
 import 'package:ss/screens/complaint.dart';
 import 'package:ss/screens/create_account_screen.dart';
 import 'package:ss/screens/dashboard.dart';
@@ -42,7 +44,8 @@ class MyApp extends StatelessWidget {
       initialRoute: token == null ? '/login_screen' : '/Tab_screen',
 
       routes: {
-        "/": (context) => Tabs(key: tabsKey,), //Informationscreen(),//Dashscreen(),
+        "/": (context) =>
+            Tabs(key: tabsKey), //Informationscreen(),//Dashscreen(),
         "/login_screen": (context) => LoginScreen(),
         "/information_screen": (context) => Informationscreen(),
         "/create_account_Screen": (context) => CreateAccount(),
@@ -63,6 +66,8 @@ class MyApp extends StatelessWidget {
         "/profile_screen": (context) => Profile(),
         "/tab_screen": (context) => Tabs(),
         "/powercut_schedule": (context) => Powercut(),
+        "/call_plumber": (context) => CallPlumber(),
+        "/call_maid": (context) => CallMaid(),
       },
     );
   }

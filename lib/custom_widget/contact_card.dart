@@ -6,7 +6,7 @@ class ContactCard extends StatelessWidget {
   final String name;
   final String role;
   final String availableTime;
-  final String towers;
+  final String address;
   final VoidCallback onCallTap;
 
   const ContactCard({
@@ -14,7 +14,7 @@ class ContactCard extends StatelessWidget {
     required this.name,
     required this.role,
     required this.availableTime,
-    required this.towers,
+    required this.address,
     required this.onCallTap,
   });
 
@@ -24,8 +24,9 @@ class ContactCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: Color(0xFFEDE4FF), // light purple
+        color: Colors.white,//Color(0xFFEDE4FF), // light purple
         borderRadius: BorderRadius.circular(20),
+        border: Border.all(color: Appcolor.primarycolor),
         boxShadow: [
           BoxShadow(color: Colors.black12, blurRadius: 6, offset: Offset(0, 3)),
         ],
@@ -40,7 +41,7 @@ class ContactCard extends StatelessWidget {
               Text(
                 name,
                 style: GoogleFonts.josefinSans(
-                  fontSize: 25,
+                  fontSize: 20,
                   fontWeight: FontWeight.w600,
                 ),
               ),
@@ -72,7 +73,7 @@ class ContactCard extends StatelessWidget {
           Text(
             role,
             style: GoogleFonts.josefinSans(
-              fontSize: 20,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
               color: Appcolor.primarycolor,
             ),
@@ -82,15 +83,15 @@ class ContactCard extends StatelessWidget {
           Text(
             "Available: $availableTime",
             style: GoogleFonts.josefinSans(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),
           // Towers
           Text(
-            "Towers: $towers",
+            "Address: $address",
             style: GoogleFonts.josefinSans(
-              fontSize: 18,
+              fontSize: 16,
               fontWeight: FontWeight.w600,
             ),
           ),

@@ -20,4 +20,8 @@ class Approutes {
   static const String profilescreen = "/profile_screen";
   static const String informationscreen = "/information_screen";
   static const String powercut = "/powercut_schedule";
+  static const String callplumber = "/call_plumber";
+  static const String callmaid = "/call_maid";
+
+
 }

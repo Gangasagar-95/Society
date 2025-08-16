@@ -38,9 +38,9 @@ class Dashscreen extends StatelessWidget {
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomCircle(label: "plumber", image: "assets/images/plumb req.jpg", onTap: () {  },),
+                      CustomCircle(label: "Plumber", image: "assets/images/plumb req.jpg", onTap: () {Get.toNamed(Approutes.callplumber);},),
                       SizedBox(width: 15,),
-                      CustomCircle(label: "Maid", image: "assets/images/maid.jpg", onTap: () {  },),
+                      CustomCircle(label: "Maid", image: "assets/images/maid.jpg", onTap: () {Get.toNamed(Approutes.callmaid);  },),
                       SizedBox(width: 15,),
                       CustomCircle(label: "Carpainter", image: "assets/images/carpainter.jpg", onTap: () {  },),
                       SizedBox(width: 15,),
