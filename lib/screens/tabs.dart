@@ -5,14 +5,16 @@ import 'package:ss/screens/dashboard.dart';
 import 'package:ss/screens/notification_screen.dart';
 import 'package:ss/screens/profile_screen.dart';
 
+final GlobalKey<TabsState> tabsKey = GlobalKey<TabsState>();
+
 class Tabs extends StatefulWidget {
   const Tabs({super.key});
 
   @override
-  State<Tabs> createState() => _TabsState();
+  State<Tabs> createState() => TabsState();
 }
 
-class _TabsState extends State<Tabs> {
+class TabsState extends State<Tabs> {
   int _selectedIndex = 0;
   final List<Widget> _Screens = [
     Dashscreen(),
@@ -24,7 +26,7 @@ class _TabsState extends State<Tabs> {
     Profile(),
   ];
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
     });
@@ -41,7 +43,7 @@ class _TabsState extends State<Tabs> {
         selectedItemColor: Appcolor.primarycolor,
         selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
         currentIndex: _selectedIndex,
-        onTap: _onItemTapped,
+        onTap: onItemTapped,
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color.fromARGB(255, 197, 156, 255),
         items: const [

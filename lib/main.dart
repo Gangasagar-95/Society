@@ -42,7 +42,7 @@ class MyApp extends StatelessWidget {
       initialRoute: token == null ? '/login_screen' : '/Tab_screen',
 
       routes: {
-        "/": (context) => Tabs(), //Informationscreen(),//Dashscreen(),
+        "/": (context) => Tabs(key: tabsKey,), //Informationscreen(),//Dashscreen(),
         "/login_screen": (context) => LoginScreen(),
         "/information_screen": (context) => Informationscreen(),
         "/create_account_Screen": (context) => CreateAccount(),

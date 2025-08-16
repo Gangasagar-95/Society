@@ -1,5 +1,3 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 // import 'package:society_mansi/Color/app_color.dart';
@@ -26,9 +24,7 @@ class CustomTopAppBar extends StatelessWidget {
       padding: EdgeInsets.only(top: 50, left: 20, right: 20, bottom: 30),
       decoration: BoxDecoration(
         color: Color(0xFF9550F5),
-        borderRadius: BorderRadius.vertical(
-          bottom: Radius.circular(30),
-        ),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(30)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -37,89 +33,87 @@ class CustomTopAppBar extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-             IconButton(
-  icon: Icon(Icons.menu,color: Colors.white,),
-  onPressed: () {
-    Navigator.of(context).push(PageRouteBuilder(
-      opaque: false, // Keep background visible
-      pageBuilder: (_, __, ___) => Align(
-        alignment: Alignment.centerLeft,
-        child: FractionallySizedBox(
-          widthFactor: 0.5, // Half screen width
-          heightFactor: 1.0,
-          child: Material(
-            color: Colors.white,
-            child: ListView(
-              children: [
-                ListTile(
-                  title: Text("Dashboard",
-                    style: GoogleFonts.josefinSans(
-                    fontWeight: FontWeight.w600,
-                  ),),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => Tabs()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text("Complaints",
-                  style: GoogleFonts.josefinSans(
-                    fontWeight: FontWeight.w600,
-                  ),),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => Complaints()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text("Profile",
-                  style: GoogleFonts.josefinSans(
-                    fontWeight: FontWeight.w600,
-                  ),),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => Profile()),
-                    );
-                  },
-                ),
-                ListTile(
-                  title: Text("Notification",
-                  style: GoogleFonts.josefinSans(
-                    fontWeight: FontWeight.w600,
-                  ),),
-                  onTap: () {
-                    Navigator.pop(context);
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => NotificationScreen()),
-                    );
-                  },
-                ),
-              ],
-            ),
-          ),
-        ),
-      ),
-      transitionsBuilder: (_, animation, __, child) {
-        return SlideTransition(
-          position: Tween<Offset>(
-            begin: Offset(-1, 0),
-            end: Offset(0, 0),
-          ).animate(animation),
-          child: child,
-        );
-      },
-    ));
-  },
-),
+              IconButton(
+                icon: Icon(Icons.menu, color: Colors.white),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      opaque: false, // Keep background visible
+                      pageBuilder: (_, __, ___) => Align(
+                        alignment: Alignment.centerLeft,
+                        child: FractionallySizedBox(
+                          widthFactor: 0.5, // Half screen width
+                          heightFactor: 1.0,
+                          child: Material(
+                            color: Colors.white,
+                            child: ListView(
+                              children: [
+                                ListTile(
+                                  title: Text(
+                                    "Dashboard",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(0);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Complaints",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(1);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Profile",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(4);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Notification",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(3);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      transitionsBuilder: (_, animation, __, child) {
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: Offset(-1, 0),
+                            end: Offset(0, 0),
+                          ).animate(animation),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
               // Container(
               //   height: 40,
               //   width: 40,
@@ -138,24 +132,26 @@ class CustomTopAppBar extends StatelessWidget {
               //     ),
               //   ),
               // )
-              IconButton(onPressed: (){
-        
-              }, icon:Icon(Icons.person_2,color: Colors.white,))
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.person_2, color: Colors.white),
+              ),
             ],
           ),
 
           SizedBox(height: 60),
 
-          
           Text(
             text,
-          
-            style: GoogleFonts.josefinSans(fontSize: 24, fontWeight: FontWeight.w600,color: Appcolor.bgcolor ),
+
+            style: GoogleFonts.josefinSans(
+              fontSize: 24,
+              fontWeight: FontWeight.w600,
+              color: Appcolor.bgcolor,
+            ),
           ),
-        ]
-          ),
-        
-      );
-          
+        ],
+      ),
+    );
   }
 }

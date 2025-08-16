@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
+import 'package:ss/screens/tabs.dart';
 
 class Profile extends StatelessWidget {
   const Profile({super.key});
@@ -16,11 +17,86 @@ class Profile extends StatelessWidget {
         backgroundColor: Appcolor.bgcolor,
 
         leading: IconButton(
-          onPressed: () {
-            Get.toNamed(Approutes.tabscreen);
-          },
-          icon: Icon(Icons.arrow_back_ios_new_outlined),
-        ),
+                icon: Icon(Icons.menu, color: Colors.black),
+                onPressed: () {
+                  Navigator.of(context).push(
+                    PageRouteBuilder(
+                      opaque: false, // Keep background visible
+                      pageBuilder: (_, __, ___) => Align(
+                        alignment: Alignment.centerLeft,
+                        child: FractionallySizedBox(
+                          widthFactor: 0.5, // Half screen width
+                          heightFactor: 1.0,
+                          child: Material(
+                            color: Colors.white,
+                            child: ListView(
+                              children: [
+                                ListTile(
+                                  title: Text(
+                                    "Dashboard",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(0);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Complaints",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(1);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Profile",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(4);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Notification",
+                                    style: GoogleFonts.josefinSans(
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(3);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                      transitionsBuilder: (_, animation, __, child) {
+                        return SlideTransition(
+                          position: Tween<Offset>(
+                            begin: Offset(-1, 0),
+                            end: Offset(0, 0),
+                          ).animate(animation),
+                          child: child,
+                        );
+                      },
+                    ),
+                  );
+                },
+              ),
 
         title: Text(
           "Profile",
