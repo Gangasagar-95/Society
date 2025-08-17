@@ -3,6 +3,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/eye_icon_controller.dart';
 //import 'package:ss/Controller/logincontroller.dart';
@@ -18,12 +19,16 @@ class LoginScreen extends StatelessWidget {
   final passwordCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
-  void login() {
-    if (_formkey.currentState!.validate()) {
-      Get.offNamed(Approutes.informationscreen);
-      //logincontroller.loginUser();
-    }
+  void login() async {
+  if (_formkey.currentState!.validate()) {
+    final prefs = await SharedPreferences.getInstance();
+    await prefs.setBool("isLoggedIn", true);
+
+    Get.offNamed(Approutes.informationscreen); 
+    // or Approutes.dashboard / Approutes.tabs depending on flow
   }
+}
+
 
   LoginScreen({super.key});
 

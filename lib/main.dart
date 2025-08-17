@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
         "/complaint_screen": (context) => Complaints(),
         "/notification_screen": (context) => NotificationScreen(),
         "/profile_screen": (context) => Profile(),
-        "/tab_screen": (context) => Tabs(),
+        "/tab_screen": (context) => Tabs(key: tabsKey),
         "/powercut_schedule": (context) => Powercut(),
         "/call_plumber": (context) => CallPlumber(),
         "/call_maid": (context) => CallMaid(),

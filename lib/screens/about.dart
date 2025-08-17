@@ -35,7 +35,7 @@ class AboutScreen extends StatelessWidget {
               height: 100,
               width: 100,
               decoration: BoxDecoration(
-                image: DecorationImage(image: AssetImage("assets/images/newlogo.png",),fit: BoxFit.fill),
+                image: DecorationImage(image: AssetImage("assets/images/topapplogo.jpg",),fit: BoxFit.fill),
                 shape: BoxShape.circle,
                 color: const Color.fromARGB(255, 240, 228, 255),
               ),

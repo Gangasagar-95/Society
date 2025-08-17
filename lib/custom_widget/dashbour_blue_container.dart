@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/screens/tabs.dart';
@@ -12,6 +13,23 @@ import 'dart:io' show Platform;
 
 class CustomTopAppBar extends StatelessWidget {
   final String text;
+
+  Future<void> logout() async {
+  Get.defaultDialog(
+    title: "Logout",
+    middleText: "Are you sure you want to log out?",
+    textCancel: "No",
+    textConfirm: "Yes",
+    confirmTextColor: Colors.white,
+    onConfirm: () async {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.remove("isLoggedIn");
+      Get.offAllNamed(Approutes.loginscreen); // clear stack and go to login
+    },
+    onCancel: () {},
+  );
+}
+
   const CustomTopAppBar({super.key, required this.text});
 
   @override
@@ -176,8 +194,7 @@ class CustomTopAppBar extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    tabsKey.currentState?.onItemTapped(3);
-                                    Navigator.pop(context);
+                                    logout();
                                   },
                                 ),
                               ],
