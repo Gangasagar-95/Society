@@ -1,18 +1,29 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:get/get_navigation/get_navigation.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/call_button.dart';
-
 import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
-class OthersProblem extends StatelessWidget {
+class OthersProblem extends StatefulWidget {
   const OthersProblem({super.key});
+
+  @override
+  State<OthersProblem> createState() => _OthersProblemState();
+}
+
+class _OthersProblemState extends State<OthersProblem> {
+
+  String? selectedIssue;
+  bool showError = false;
+
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
     if (await Permission.phone.request().isGranted) {
@@ -34,9 +45,7 @@ class OthersProblem extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
-        
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
@@ -60,9 +69,7 @@ class OthersProblem extends StatelessWidget {
                   ),
                 ),
               ),
-
               SizedBox(height: 20),
-
               CustomDropdown(
                 title: 'Category',
                 items: [
@@ -72,14 +79,39 @@ class OthersProblem extends StatelessWidget {
                   "Community issue",
                   "Other",
                 ],
-                hintText: 'select location',
+                hintText: 'select category',
+                onChanged: (value) {
+                  setState(() {
+                    selectedIssue = value;
+                    showError = false;
+                  });
+                },
               ),
+              if (showError)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    "⚠ Please select a category",
+                    style: TextStyle(color: Colors.red, fontSize: 14),
+                  ),
+                ),
               SizedBox(height: 20),
               CustomTextField(label: "Description", hint: "Complaint details"),
               SizedBox(height: 20),
-              CustomButton(text: "Submit Complaint", onPressed: () {}),
+              CustomButton(text: "Submit Complaint", onPressed: () {
+                  if (selectedIssue == null) {
+                    setState(() {
+                      showError = true;
+                    });
+                  } else {
+                   Get.snackbar(
+                      "Complaint Submitted",
+                      "for $selectedIssue",
+                      backgroundColor: Color.fromARGB(255, 198, 157, 255),
+                    );
+                  }
+                },),
               SizedBox(height: 25),
-
               Text(
                 "Need help ?",
                 textAlign: TextAlign.left,
@@ -89,11 +121,7 @@ class OthersProblem extends StatelessWidget {
                   color: Appcolor.pcolor,
                 ),
               ),
-
-              // SizedBox(height: 10),
-              // MyIconButton(label: "Search for electrician", onPressed: (){}),
               SizedBox(height: 10),
-
               Row(
                 children: [
                   CallButton(

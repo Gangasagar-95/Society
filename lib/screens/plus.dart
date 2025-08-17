@@ -1,28 +1,23 @@
-
 import 'package:flutter/material.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
+
 import 'package:ss/Color/app_colors.dart';
-import 'package:ss/custom_widget/CustomTextField.dart';
+
 import 'package:ss/custom_widget/call_button.dart';
+
 import 'package:ss/custom_widget/custom_button.dart';
+import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/screens/tabs.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
-class Tenantissue extends StatefulWidget {
-  Tenantissue({super.key});
-
-  @override
-  State<Tenantissue> createState() => _TenantissueState();
-}
-
-class _TenantissueState extends State<Tenantissue> {
-  String? selectedIssue;
-  bool showError = false;
-
+class PlusScreen extends StatelessWidget {
+  const PlusScreen({super.key});
   Future<void> _makeDirectCall(String phoneNumber) async {
+    // Request permission
     if (await Permission.phone.request().isGranted) {
       final Uri callUri = Uri(scheme: 'tel', path: phoneNumber);
       if (await canLaunchUrl(callUri)) {
@@ -41,81 +36,50 @@ class _TenantissueState extends State<Tenantissue> {
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
+        leading: IconButton(
+          onPressed: () {
+            tabsKey.currentState?.onItemTapped(0);
+            
+            //Get.toNamed(Approutes.dashscreen);
+          },
+          icon: Icon(Icons.arrow_back),
+        ),
       ),
+
       body: Padding(
-        padding: EdgeInsets.all(25),
+        padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Center(
-                child: Image.asset(
-                  "assets/images/tenant_issues.jpg",
-                  height: 150,
-                  width: 150,
-                ),
-              ),
-              Center(
                 child: Text(
-                  "Tenant Issue",
+                  "Make a complain",
                   style: GoogleFonts.poppins(
                     fontSize: 24,
                     fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
+
               SizedBox(height: 20),
 
-              // Dropdown
               CustomDropdown(
-                title: 'Issue',
+                title: 'Category',
                 items: [
-                  "unauthorized tenant",
-                  "not following rules",
-                  "noise or disturbance",
-                  "Cleanliness issue",
+                  "Security issue",
+                  "Infrastructure issue",
+                  "Maintenance issue",
+                  "Community issue",
                   "Other",
                 ],
-                hintText: 'select issue',
-                onChanged: (value) {
-                  setState(() {
-                    selectedIssue = value;
-                    showError = false;
-                  });
-                },
+                hintText: 'select category',
               ),
-              showError
-                  ? Padding(
-                      padding: EdgeInsets.only(top: 8, left: 8),
-                      child: Text(
-                        "⚠ Please select an issue",
-                        style: TextStyle(color: Colors.red, fontSize: 14),
-                      ),
-                    )
-                  : SizedBox(),
-
               SizedBox(height: 20),
               CustomTextField(label: "Description", hint: "Complaint details"),
               SizedBox(height: 20),
-
-              // Submit Button
-              CustomButton(
-                text: "Submit Complaint",
-                onPressed: () {
-                  if (selectedIssue == null) {
-                    setState(() {
-                      showError = true;
-                    });
-                  } else {
-                    Get.snackbar(
-                      "Complaint Submitted",
-                      "of tenant for $selectedIssue",
-                      backgroundColor: Color.fromARGB(255, 198, 157, 255),
-                    );
-                  }
-                },
-              ),
+              CustomButton(text: "Submit Complaint", onPressed: () {}),
               SizedBox(height: 25),
 
               Text(
@@ -127,6 +91,9 @@ class _TenantissueState extends State<Tenantissue> {
                   color: Appcolor.pcolor,
                 ),
               ),
+
+              // SizedBox(height: 10),
+              // MyIconButton(label: "Search for electrician", onPressed: (){}),
               SizedBox(height: 10),
 
               Row(
@@ -137,7 +104,7 @@ class _TenantissueState extends State<Tenantissue> {
                   ),
                   SizedBox(width: 10),
                   CallButton(
-                    label: "house owner",
+                    label: "Municipality",
                     onPressed: () => _makeDirectCall("02462234405"),
                   ),
                 ],
@@ -150,4 +117,3 @@ class _TenantissueState extends State<Tenantissue> {
     );
   }
 }
-

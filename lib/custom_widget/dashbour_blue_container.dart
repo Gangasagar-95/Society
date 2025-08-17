@@ -1,3 +1,6 @@
+import 'package:android_intent_plus/android_intent.dart';
+import 'package:android_intent_plus/flag.dart';
+import 'package:app_settings/app_settings.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -5,6 +8,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/screens/tabs.dart';
+import 'dart:io' show Platform;
 
 class CustomTopAppBar extends StatelessWidget {
   final String text;
@@ -119,9 +123,21 @@ class CustomTopAppBar extends StatelessWidget {
                                       fontWeight: FontWeight.w500,
                                     ),
                                   ),
-                                  onTap: () {
-                                    tabsKey.currentState?.onItemTapped(3);
-                                    Navigator.pop(context);
+                                  onTap: () async {
+                                    if (Platform.isAndroid) {
+                                      const intent = AndroidIntent(
+                                        action:
+                                            'android.settings.APPLICATION_DETAILS_SETTINGS',
+                                        data:
+                                            'package:com.example.ss', // 👈 your package name
+                                        flags: <int>[
+                                          Flag.FLAG_ACTIVITY_NEW_TASK,
+                                        ],
+                                      );
+                                      await intent.launch();
+                                    } else if (Platform.isIOS) {
+                                      await AppSettings.openAppSettings();
+                                    }
                                   },
                                 ),
 
@@ -146,8 +162,9 @@ class CustomTopAppBar extends StatelessWidget {
                                     ),
                                   ),
                                   onTap: () {
-                                    tabsKey.currentState?.onItemTapped(3);
-                                    Navigator.pop(context);
+                                    Get.toNamed(Approutes.about);
+                                    // tabsKey.currentState?.onItemTapped(3);
+                                    // Navigator.pop(context);
                                   },
                                 ),
 

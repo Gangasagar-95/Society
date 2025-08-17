@@ -17,8 +17,8 @@ class NotificationCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 130,
-      width: 400,
+      height: 120,
+      width: double.infinity,
       decoration: BoxDecoration(
         border: Border.all(color: Appcolor.primarycolor),
         color: Appcolor.bgcolor,
@@ -49,7 +49,7 @@ class NotificationCard extends StatelessWidget {
                 Text(
                   title,
                   style: GoogleFonts.poppins(
-                    fontSize: 24,
+                    fontSize: 20,
                     fontWeight: FontWeight.w500,
                     color: Appcolor.subtitlecolor,
                   ),
@@ -58,7 +58,7 @@ class NotificationCard extends StatelessWidget {
                 Text(
                   subtitle,
                   style: GoogleFonts.poppins(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w500,
                     color: Appcolor.primarycolor,
                   ),

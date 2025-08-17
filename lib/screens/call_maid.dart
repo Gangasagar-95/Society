@@ -25,7 +25,7 @@ class _CallMaidState extends State<CallMaid> {
       "phone": "+917822027057",
     },
     {
-      "name": "Rupali Joshi",
+      "name": "Rupali Tidke",
       "role": "Utensils",
       "availableTime": "8am to 1pm",
       "address": "Nanded",

@@ -1,23 +1,30 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
-
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/call_button.dart';
-//import 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:ss/custom_widget/icon_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class NoWatersupply extends StatelessWidget {
+class NoWatersupply extends StatefulWidget {
   const NoWatersupply({super.key});
+
+  @override
+  State<NoWatersupply> createState() => _NoWatersupplyState();
+}
+
+class _NoWatersupplyState extends State<NoWatersupply> {
+  String? selectedLocation;
+  bool showError = false;
+
   Future<void> _makeDirectCall(String phoneNumber) async {
-    // Request permission
     if (await Permission.phone.request().isGranted) {
       final Uri callUri = Uri(scheme: 'tel', path: phoneNumber);
       if (await canLaunchUrl(callUri)) {
@@ -36,14 +43,10 @@ class NoWatersupply extends StatelessWidget {
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-        //leading: Icon(Icons.arrow_back),
-        
       ),
-
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -63,38 +66,67 @@ class NoWatersupply extends StatelessWidget {
                   ),
                 ),
               ),
-
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
 
               CustomDropdown(
                 title: 'Location',
-                items: ["Kitchen", "Bathroom", "Sink", "common tap", "Other"],
+                items: ["Kitchen", "Bathroom", "Sink", "Common tap", "Other"],
                 hintText: 'select location',
+                onChanged: (value) {
+                  setState(() {
+                    selectedLocation = value;
+                    showError = false;
+                  });
+                },
               ),
-              SizedBox(height: 20),
+              if (showError)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    "⚠ Please select a location",
+                    style: TextStyle(color: Colors.red, fontSize: 14),
+                  ),
+                ),
+
+              const SizedBox(height: 20),
               CustomTextField(label: "Description", hint: "Complaint details"),
-              SizedBox(height: 20),
-              CustomButton(text: "Submit Complaint", onPressed: () {}),
-              SizedBox(height: 25),
+              const SizedBox(height: 20),
+
+              CustomButton(
+                text: "Submit Complaint",
+                onPressed: () {
+                  if (selectedLocation == null) {
+                    setState(() {
+                      showError = true;
+                    });
+                  } else {
+                   Get.snackbar(
+                      "Complaint Submitted",
+                      "for no water supply at $selectedLocation",
+                      backgroundColor: Color.fromARGB(255, 198, 157, 255),
+                    );
+                  }
+                },
+              ),
+              const SizedBox(height: 25),
 
               Text(
                 "Need help ?",
-                textAlign: TextAlign.left,
                 style: GoogleFonts.poppins(
                   fontSize: 18,
                   fontWeight: FontWeight.w500,
                   color: Appcolor.pcolor,
                 ),
               ),
+              const SizedBox(height: 10),
 
-              SizedBox(height: 10),
               MyIconButton(
                 label: "Search for plumber",
                 onPressed: () {
                   Get.toNamed(Approutes.callplumber);
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               Row(
                 children: [
@@ -102,14 +134,14 @@ class NoWatersupply extends StatelessWidget {
                     label: "Secretary",
                     onPressed: () => _makeDirectCall("+917822027057"),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   CallButton(
                     label: "Municipality",
                     onPressed: () => _makeDirectCall("02462234405"),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
             ],
           ),
         ),

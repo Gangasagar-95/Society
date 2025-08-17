@@ -28,6 +28,8 @@ class Approutes {
   static const String callpainter = "/call_painter";
   static const String bill = "/bill_screen";
   static const String emergency = "/emergency";
+  static const String about = "/about";
+  static const String plus = "/plus";
 
 
 }

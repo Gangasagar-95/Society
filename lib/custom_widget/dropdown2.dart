@@ -1,3 +1,5 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
@@ -8,6 +10,7 @@ class CustomDropdown extends StatefulWidget {
   final String hintText;
   final Function(String?)? onChanged;
   final String? selectedValue;
+  final bool showError; 
 
   const CustomDropdown({
     super.key,
@@ -16,6 +19,7 @@ class CustomDropdown extends StatefulWidget {
     required this.hintText,
     this.onChanged,
     this.selectedValue,
+    this.showError = false, 
   });
 
   @override
@@ -44,7 +48,11 @@ class _CustomDropdownState extends State<CustomDropdown> {
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            border: Border.all(color: Appcolor.primarycolor),
+            border: Border.all(
+              color: widget.showError
+                  ? Colors.red // 👈 red border if error
+                  : Appcolor.primarycolor,
+            ),
             borderRadius: BorderRadius.circular(8),
           ),
           child: DropdownButtonHideUnderline(
@@ -73,6 +81,16 @@ class _CustomDropdownState extends State<CustomDropdown> {
             ),
           ),
         ),
+
+        // 👇 Error message below dropdown
+        if (widget.showError && _selectedValue == null)
+          Padding(
+            padding: const EdgeInsets.only(top: 5, left: 8),
+            child: Text(
+              "Please select a value",
+              style: TextStyle(color: Colors.red, fontSize: 14),
+            ),
+          ),
       ],
     );
   }

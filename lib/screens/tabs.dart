@@ -3,6 +3,7 @@ import 'package:ss/Color/app_colors.dart';
 import 'package:ss/screens/complaint.dart';
 import 'package:ss/screens/dashboard.dart';
 import 'package:ss/screens/notification_screen.dart';
+import 'package:ss/screens/plus.dart';
 import 'package:ss/screens/profile_screen.dart';
 
 final GlobalKey<TabsState> tabsKey = GlobalKey<TabsState>();
@@ -21,9 +22,10 @@ class TabsState extends State<Tabs> {
   final List<Widget> _Screens = [
     Dashscreen(),
     Complaints(),
-    Center(
-      child: Icon(Icons.add_circle_outline, size: 80, color: Appcolor.bcolor),
-    ),
+    PlusScreen(),
+    // Center(
+    //   child: Icon(Icons.add_circle_outline, size: 80, color: Appcolor.bcolor),
+    // ),
     NotificationScreen(),
     Profile(),
   ];
@@ -63,7 +65,7 @@ class TabsState extends State<Tabs> {
         type: BottomNavigationBarType.fixed,
         unselectedItemColor: const Color.fromARGB(255, 197, 156, 255),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home" ),
           BottomNavigationBarItem(
             icon: Icon(Icons.article_outlined),
             label: "Complaints",

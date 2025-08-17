@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/call_button.dart';
-//import 'package:ss/custom_widget/call_container.dart';
 import 'package:ss/custom_widget/custom_button.dart';
-//import 'package:ss/custom_widget/drop_down.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:ss/custom_widget/icon_button.dart';
-//import 'package:ss/screens/tabs.dart';
-//import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-class MaidScreen extends StatelessWidget {
+class MaidScreen extends StatefulWidget {
   const MaidScreen({super.key});
 
-  //  final String phoneNumber = "+917822027057"; // Your number
+  @override
+  State<MaidScreen> createState() => _MaidScreenState();
+}
+
+class _MaidScreenState extends State<MaidScreen> {
+  String? selectedCategory; //  track selected value
+  bool showError = false; //  track validation state
 
   Future<void> _makeDirectCall(String phoneNumber) async {
-    // Request permission
     if (await Permission.phone.request().isGranted) {
       final Uri callUri = Uri(scheme: 'tel', path: phoneNumber);
       if (await canLaunchUrl(callUri)) {
@@ -39,12 +39,7 @@ class MaidScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appcolor.bgcolor,
-      appBar: AppBar(
-        backgroundColor: Appcolor.bgcolor,
-        //leading: Icon(Icons.arrow_back),
-        
-      ),
-
+      appBar: AppBar(backgroundColor: Appcolor.bgcolor),
       body: Padding(
         padding: const EdgeInsets.all(25),
         child: SingleChildScrollView(
@@ -69,20 +64,59 @@ class MaidScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
+
+              // ✅ CustomDropdown with validation
               CustomDropdown(
                 title: 'Category',
-                items: ["Cooker", "Sweeper", "Laundary", "Child care","utensils", "Other"],
-                hintText: 'select category',
+                items: [
+                  "Cooker",
+                  "Sweeper",
+                  "Laundary",
+                  "Child care",
+                  "Utensils",
+                  "Other",
+                ],
+                hintText: 'Select category',
+                selectedValue: selectedCategory,
+                showError: showError,
+                onChanged: (value) {
+                  setState(() {
+                    selectedCategory = value;
+                    showError = false; // clear error once selected
+                  });
+                },
               ),
-              //CategoryDropdownField(),
-              SizedBox(height: 20),
+
+              const SizedBox(height: 20),
               CustomTextField(label: "Date of absence", hint: "23/07/2025"),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomTextField(label: "Description", hint: "Complaint details"),
-              SizedBox(height: 20),
-              CustomButton(text: "Submit Complaint", onPressed: () {}),
-              SizedBox(height: 30),
+              const SizedBox(height: 20),
+
+              // ✅ Use your CustomButton
+              
+              CustomButton(
+                text: "Submit Complaint",
+                onPressed: () {
+                  if (selectedCategory == null) {
+                    setState(() {
+                      showError = true;
+                    });
+                  } else {
+                    // ✅ proceed with complaint submission
+                    Get.snackbar(
+                      "Complaint Submitted",
+                      "for $selectedCategory maid not coming",
+                      backgroundColor: const Color.fromARGB(255, 198, 157, 255),
+                      //colorText: Appcolor.bgcolor
+                    );
+
+                  }
+                },
+              ),
+
+              const SizedBox(height: 30),
 
               Text(
                 "Need help ?",
@@ -94,14 +128,14 @@ class MaidScreen extends StatelessWidget {
                 ),
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               MyIconButton(
                 label: "Search for maid",
                 onPressed: () {
                   Get.toNamed(Approutes.callmaid);
                 },
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
 
               Row(
                 children: [
@@ -109,37 +143,14 @@ class MaidScreen extends StatelessWidget {
                     label: "Secretary",
                     onPressed: () => _makeDirectCall("+917822027057"),
                   ),
-                  SizedBox(width: 10),
+                  const SizedBox(width: 10),
                   CallButton(
                     label: "Maid",
                     onPressed: () => _makeDirectCall("+917822027057"),
                   ),
                 ],
               ),
-              SizedBox(height: 20),
-
-              //ContactCard(
-              //   name: "Sunita sathe",
-              //   role: "Sweeper",
-              //   availableTime: "8 AM to 8 PM",
-              //   towers: "A,B,C",
-              //   onCallTap: () => _makeDirectCall("+917822027057"),
-              // ),
-              // ContactCard(
-              //   name: "Kavita Kale",
-              //   role: "Cooker",
-              //   availableTime: "8 AM to 8 PM",
-              //   towers: "A,B,C",
-              //   onCallTap: () => _makeDirectCall("+919860801358"),
-              // ),
-              // ContactCard(
-              //   name: "Nita Kamble",
-              //   role: "Sectatery",
-              //   availableTime: "8 AM to 8 PM",
-              //   towers: "A,B,C",
-              //   onCallTap: () => _makeDirectCall("+918888131220"),
-
-              // ),
+              const SizedBox(height: 20),
             ],
           ),
         ),
