@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/screens/about.dart';
 import 'package:ss/screens/bills_screen.dart';
 import 'package:ss/screens/call_carpenter.dart';
@@ -35,25 +35,24 @@ import 'package:ss/screens/tenant_issue.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  SharedPreferences prefs = await SharedPreferences.getInstance();
-  String? token = prefs.getString('token');
-  runApp(MyApp(token: token));
+  // SharedPreferences prefs = await SharedPreferences.getInstance();
+  // String? token = prefs.getString('token');
+  runApp(MyApp());
 
-  print("token in main.dart:$token");
+  //print("token in main.dart:$token");
 }
 
 class MyApp extends StatelessWidget {
-  final String? token;
-  const MyApp({super.key, required this.token});
+//  final String? token;
+  const MyApp({super.key,});
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: token == null ? '/login_screen' : '/Tab_screen',
+      initialRoute: "/",//token == null ? '/login_screen' : '/Tab_screen',
 
       routes: {
-        "/": (context) =>
-            Tabs(key: tabsKey), //Informationscreen(),//Dashscreen(),
+        "/": (context) => SplashScreen(),//Tabs(key: tabsKey), //Informationscreen(),//Dashscreen(),
         "/login_screen": (context) => LoginScreen(),
         "/information_screen": (context) => Informationscreen(),
         "/create_account_Screen": (context) => CreateAccount(),

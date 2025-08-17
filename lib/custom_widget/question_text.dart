@@ -27,12 +27,12 @@ class QuestionText extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(label, style: GoogleFonts.poppins(fontSize: 20)),
+          Text(label, style: GoogleFonts.poppins(fontSize: 18)),
           TextFormField(
             decoration: InputDecoration(
               hintText: hint,
               hintStyle: GoogleFonts.poppins(
-                fontSize: 18,
+                fontSize: 16,
                 color: Appcolor.subtextcolor,
               ),
               border: OutlineInputBorder(

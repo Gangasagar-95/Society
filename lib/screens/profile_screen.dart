@@ -212,16 +212,16 @@ class Profile extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 50),
+              SizedBox(height: 40),
 
               Center(
                 child: Container(
-                  height: 90,
-                  width: 90,
+                  height: 100,
+                  width: 100,
                   decoration: BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
-                      image: AssetImage("assets/images/profile.jpeg"),
+                      image: AssetImage("assets/images/profile.webp"),
                       fit: BoxFit.fill,
                     ),
                   ),

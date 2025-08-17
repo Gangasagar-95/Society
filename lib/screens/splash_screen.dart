@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-//import 'package:ss/screens/dashboard.dart';
-
+import 'package:google_fonts/google_fonts.dart';
+import 'package:ss/Color/app_colors.dart';
 import 'package:ss/screens/login_screen.dart';
-import 'package:ss/screens/tabs.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,31 +10,15 @@ class SplashScreen extends StatefulWidget {
   State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _SplashScreenState extends State<SplashScreen>
-//with SingleTickerProviderStateMixin
-{
-  Future<void> checkLogin() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    String token = prefs.getString('token') ?? '';
-
-    if (token.isNotEmpty) {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Tabs()),
-      );
-    } else {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
-    }
-  }
-
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 5), () {
-      checkLogin();
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => LoginScreen()),
+      );
     });
   }
 
@@ -56,14 +38,46 @@ class _SplashScreenState extends State<SplashScreen>
             end: Alignment.bottomCenter,
           ),
         ),
-        child: Center(
-          child: Image.asset(
-            "assets/images/society logo.jpg",
-            width: 400,
-            height: 400,
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Image.asset(
+                "assets/images/newlogo.png",
+                width: 150,
+                height: 150,
+              ),
+            ),
+            Text(
+              "Society Setu",
+              style: GoogleFonts.poppins(
+                fontSize: 22,
+                fontWeight: FontWeight.w500,
+                color: Appcolor.bgcolor,
+              ),
+            )
+          ],
         ),
       ),
     );
   }
 }
+
+
+
+  // Future<void> checkLogin() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   String token = prefs.getString('token') ?? '';
+
+  //   if (token.isNotEmpty) {
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => Tabs()),
+  //     );
+  //   } else {
+  //     Navigator.pushReplacement(
+  //       context,
+  //       MaterialPageRoute(builder: (context) => LoginScreen()),
+  //     );
+  //   }
+  // }

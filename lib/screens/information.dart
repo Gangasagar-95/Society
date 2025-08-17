@@ -23,7 +23,7 @@ class Informationscreen extends StatelessWidget {
         title: Text(
           "Personal Details",
           style: GoogleFonts.poppins(
-            fontSize: 24,
+            fontSize: 22,
             fontWeight: FontWeight.w500,
             color: Appcolor.bgcolor,
           ),
@@ -42,7 +42,7 @@ class Informationscreen extends StatelessWidget {
                     "Enter Your Details ",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
-                      fontSize: 23,
+                      fontSize: 22,
                       fontWeight: FontWeight.w500,
                       color: Appcolor.subtitlecolor,
                     ),
@@ -85,7 +85,7 @@ class Informationscreen extends StatelessWidget {
                   ElevatedButton(
                     onPressed: () {
                       if (_formkey.currentState!.validate()) {
-                        Get.toNamed(Approutes.dashscreen);
+                        Get.toNamed(Approutes.tabscreen);
                       }
                     },
                     style: ElevatedButton.styleFrom(
