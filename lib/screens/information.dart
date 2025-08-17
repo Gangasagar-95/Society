@@ -6,6 +6,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/question_text.dart';
+import 'package:ss/screens/profile_screen.dart';
 
 class Informationscreen extends StatelessWidget {
   //final detailCtrl = TextEditingController();
@@ -15,6 +16,26 @@ class Informationscreen extends StatelessWidget {
    final addressCtrl = TextEditingController();
    final _formkey = GlobalKey<FormState>();
 
+   Informationscreen({super.key});
+
+ 
+  // void continuee(BuildContext context) {
+  //   if (_formkey.currentState!.validate()) {
+  //     Navigator.push(
+  //       context,
+  //       MaterialPageRoute(
+  //         builder: (context) => Profile(
+  //           name: nameCtrl.text,
+  //           flat: flatCtrl.text,
+  //           phone: phoneCtrl.text,
+  //           address: addressCtrl.text,
+  //         ),
+  //       ),
+  //     );
+  //   }
+  // }
+
+  
    void continuee() async {
     if (_formkey.currentState!.validate()) {
       final prefs = await SharedPreferences.getInstance();
@@ -28,8 +49,7 @@ class Informationscreen extends StatelessWidget {
     }
   }
 
-
-  Informationscreen({super.key});
+  
 
   @override
   Widget build(BuildContext context) {
@@ -103,7 +123,9 @@ class Informationscreen extends StatelessWidget {
 
                   ElevatedButton(
                     onPressed: () {
-                      continuee();
+                      continuee(
+                        //context
+                      );
                     },
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(350, 50),

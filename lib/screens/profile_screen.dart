@@ -11,40 +11,48 @@ import 'package:permission_handler/permission_handler.dart' as AppSettings;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Routes/app_routes.dart';
-//import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
+//import 'package:ss/Routes/app_routes.dart';
+import 'package:ss/custom_widget/text_show.dart';
 import 'package:ss/screens/tabs.dart';
 
 class Profile extends StatefulWidget {
-  const Profile({super.key});
+  // final String name;
+  // final String flat;
+  // final String phone;
+  // final String address;
+
+  const Profile({super.key, 
+  //required this.name, required this.flat, required this.phone, required this.address
+  });
 
   @override
   State<Profile> createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
-  String name = "";
-  String flat = "";
-  String address = "";
-  String phone = "";
-  String email = "";
+ class _ProfileState extends State<Profile> {
+//   String name = "Vaishnai";
+//   String flat = "";
+//   String address = "";
+//   String phone = "";
+//   String email = "";
 
-  @override
-  void initState() {
-    super.initState();
-    loadProfileData();
-  }
+//   @override
+//   void initState() {
+//     super.initState();
+//     loadProfileData();
+//   }
 
-  Future<void> loadProfileData() async {
-    final prefs = await SharedPreferences.getInstance();
-    setState(() {
-      name = prefs.getString("name") ?? "";
-      flat = prefs.getString("flat") ?? "";
-      address = prefs.getString("address") ?? "";
-      phone = prefs.getString("phone") ?? "";
-      email = prefs.getString("email") ?? ""; // if you save email too
-    });
-  }
+//   Future<void> loadProfileData() async {
+//     final prefs = await SharedPreferences.getInstance();
+//     setState(() {
+//       name = prefs.getString("name") ?? "";
+//       flat = prefs.getString("flat") ?? "";
+//       address = prefs.getString("address") ?? "";
+//       phone = prefs.getString("phone") ?? "";
+//       email = prefs.getString("email") ?? ""; // if you save email too
+//     });
+//   }
 
   Future<void> logout() async {
     Get.defaultDialog(
@@ -56,7 +64,7 @@ class _ProfileState extends State<Profile> {
       onConfirm: () async {
         final prefs = await SharedPreferences.getInstance();
         await prefs.remove("isLoggedIn");
-        Get.offAllNamed(Approutes.loginscreen); 
+        Get.offAllNamed(Approutes.loginscreen);
       },
       onCancel: () {},
     );
@@ -64,6 +72,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+   
     return Scaffold(
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
@@ -276,11 +285,14 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               SizedBox(height: 10),
-              CustomTextField(label: "Full Name", hint: name,),
+              //CustomTextField(label: "Full Name", hint: "$name"),
+              TextShow(text: "Vaishnavi Mahurkar", label: "Full Name"),
               SizedBox(height: 10),
-              CustomTextField(label: "Flat no/House no", hint: flat),
+              //CustomTextField(label: "Flat no/House no", hint: flat),
+              TextShow(text: "203", label: "Flat no/House no"),
               SizedBox(height: 10),
-              CustomTextField(label: "Address", hint: address),
+              //CustomTextField(label: "Address", hint: address),
+              TextShow(text: "Nanded", label: "Address"),
 
               SizedBox(height: 20),
               Text(
@@ -292,9 +304,11 @@ class _ProfileState extends State<Profile> {
                 ),
               ),
               SizedBox(height: 10),
-              CustomTextField(label: "Mobile Number", hint: phone),
+              //CustomTextField(label: "Phone", hint: phone),
+              TextShow(text: "9404459700", label: "Phone"),
               SizedBox(height: 10),
-              CustomTextField(label: "Email", hint: email.isEmpty ? "Not Provided" : email),
+              //CustomTextField(label: "Email", hint: email),
+              TextShow(text:"vaishnavi@gmail.com", label: "Email"),
             ],
           ),
         ),
