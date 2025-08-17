@@ -16,8 +16,6 @@ class CustomCircle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
-
     return GestureDetector(
       onTap: onTap,
       child: Column(
@@ -26,7 +24,8 @@ class CustomCircle extends StatelessWidget {
           Container(
             width: 90,
             height: 90,
-            decoration: BoxDecoration( image: DecorationImage(image: AssetImage(image)),
+            decoration: BoxDecoration(
+              image: DecorationImage(image: AssetImage(image)),
               shape: BoxShape.circle,
               // border: Border.all(
               //   color: Appcolor.primarycolor, // red border
@@ -40,11 +39,11 @@ class CustomCircle extends StatelessWidget {
           Text(
             label,
             textAlign: TextAlign.center,
-            style: GoogleFonts.josefinSans(
-          color: Colors.black,
-          fontSize: 16,
-          fontWeight: FontWeight.w600,
-        ),
+            style: GoogleFonts.poppins(
+              color: Colors.black,
+              fontSize: 16,
+              fontWeight: FontWeight.w500,
+            ),
           ),
         ],
       ),

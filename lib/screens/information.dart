@@ -22,9 +22,9 @@ class Informationscreen extends StatelessWidget {
 
         title: Text(
           "Personal Details",
-          style: GoogleFonts.josefinSans(
+          style: GoogleFonts.poppins(
             fontSize: 24,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             color: Appcolor.bgcolor,
           ),
         ),
@@ -41,18 +41,18 @@ class Informationscreen extends StatelessWidget {
                   Text(
                     "Enter Your Details ",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.josefinSans(
+                    style: GoogleFonts.poppins(
                       fontSize: 23,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       color: Appcolor.subtitlecolor,
                     ),
                   ),
                   Text(
                     "Please provide your information below",
                     textAlign: TextAlign.center,
-                    style: GoogleFonts.josefinSans(
+                    style: GoogleFonts.poppins(
                       fontSize: 18,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       color: Appcolor.subtextcolor,
                     ),
                   ),

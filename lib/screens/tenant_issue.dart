@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 
-
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/call_button.dart';
@@ -35,9 +34,7 @@ class Tenantissue extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
+        
       ),
 
       body: Padding(
@@ -57,44 +54,60 @@ class Tenantissue extends StatelessWidget {
               Center(
                 child: Text(
                   "Tenant Issue",
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
 
               SizedBox(height: 20),
 
-              CustomDropdown(title: 'Issue', items: ["unauthorized tenant", "not following rules", "noise or disturbance", "Cleanliness issue","Other"],hintText: 'select location',),
+              CustomDropdown(
+                title: 'Issue',
+                items: [
+                  "unauthorized tenant",
+                  "not following rules",
+                  "noise or disturbance",
+                  "Cleanliness issue",
+                  "Other",
+                ],
+                hintText: 'select location',
+              ),
               SizedBox(height: 20),
               CustomTextField(label: "Description", hint: "Complaint details"),
               SizedBox(height: 20),
-              CustomButton(text: "Submit Complaint", onPressed:() {},),
+              CustomButton(text: "Submit Complaint", onPressed: () {}),
               SizedBox(height: 25),
 
               Text(
                 "Need help ?",
                 textAlign: TextAlign.left,
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.pcolor,
                 ),
               ),
 
               // SizedBox(height: 10),
               // MyIconButton(label: "Search for electrician", onPressed: (){}),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
 
               Row(
                 children: [
-                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
-                  SizedBox(width: 10,),
-                  CallButton(label: "house owner", onPressed: () => _makeDirectCall("02462234405"),),  
+                  CallButton(
+                    label: "Secretary",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
+                  SizedBox(width: 10),
+                  CallButton(
+                    label: "house owner",
+                    onPressed: () => _makeDirectCall("02462234405"),
+                  ),
                 ],
               ),
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
             ],
           ),
         ),

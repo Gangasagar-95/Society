@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
+import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/screens/tabs.dart';
 
 class CustomTopAppBar extends StatelessWidget {
@@ -39,9 +42,20 @@ class CustomTopAppBar extends StatelessWidget {
                               children: [
                                 ListTile(
                                   title: Text(
+                                    "Society Setu",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                      color: Appcolor.primarycolor,
+                                      fontSize: 20,
+                                    ),
+                                  ),
+                                ),
+
+                                ListTile(
+                                  title: Text(
                                     "Dashboard",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   onTap: () {
@@ -52,8 +66,8 @@ class CustomTopAppBar extends StatelessWidget {
                                 ListTile(
                                   title: Text(
                                     "Complaints",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   onTap: () {
@@ -61,11 +75,61 @@ class CustomTopAppBar extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                 ),
+
+                                ListTile(
+                                  title: Text(
+                                    "Event & Notices",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(3);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Bills & Payments",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Get.toNamed(Approutes.bill);
+                                    // tabsKey.currentState?.onItemTapped(3);
+                                    // Navigator.pop(context);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Emergency ",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    Get.toNamed(Approutes.emergency);
+                                  },
+                                ),
+                                ListTile(
+                                  title: Text(
+                                    "Settings",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(3);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+
                                 ListTile(
                                   title: Text(
                                     "Profile",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   onTap: () {
@@ -73,11 +137,25 @@ class CustomTopAppBar extends StatelessWidget {
                                     Navigator.pop(context);
                                   },
                                 ),
+
                                 ListTile(
                                   title: Text(
-                                    "Notification",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
+                                    "About",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
+                                  onTap: () {
+                                    tabsKey.currentState?.onItemTapped(3);
+                                    Navigator.pop(context);
+                                  },
+                                ),
+
+                                ListTile(
+                                  title: Text(
+                                    "Logout",
+                                    style: GoogleFonts.poppins(
+                                      fontWeight: FontWeight.w500,
                                     ),
                                   ),
                                   onTap: () {
@@ -122,7 +200,9 @@ class CustomTopAppBar extends StatelessWidget {
               //   ),
               // )
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  tabsKey.currentState?.onItemTapped(4);
+                },
                 icon: Icon(Icons.person_2, color: Colors.white),
               ),
             ],
@@ -133,9 +213,9 @@ class CustomTopAppBar extends StatelessWidget {
           Text(
             text,
 
-            style: GoogleFonts.josefinSans(
+            style: GoogleFonts.poppins(
               fontSize: 24,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
               color: Appcolor.bgcolor,
             ),
           ),

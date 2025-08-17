@@ -17,92 +17,92 @@ class Profile extends StatelessWidget {
         backgroundColor: Appcolor.bgcolor,
 
         leading: IconButton(
-                icon: Icon(Icons.menu,color: Colors.black,),
-                onPressed: () {
-                  Navigator.of(context).push(
-                    PageRouteBuilder(
-                      opaque: false, // Keep background visible
-                      pageBuilder: (_, __, ___) => Align(
-                        alignment: Alignment.centerLeft,
-                        child: FractionallySizedBox(
-                          widthFactor: 0.5, // Half screen width
-                          heightFactor: 1.0,
-                          child: Material(
-                            color: Colors.white,
-                            child: ListView(
-                              children: [
-                                ListTile(
-                                  title: Text(
-                                    "Dashboard",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    tabsKey.currentState?.onItemTapped(0);
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                                ListTile(
-                                  title: Text(
-                                    "Complaints",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    tabsKey.currentState?.onItemTapped(1);
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                                ListTile(
-                                  title: Text(
-                                    "Profile",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    tabsKey.currentState?.onItemTapped(4);
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                                ListTile(
-                                  title: Text(
-                                    "Notification",
-                                    style: GoogleFonts.josefinSans(
-                                      fontWeight: FontWeight.w600,
-                                    ),
-                                  ),
-                                  onTap: () {
-                                    tabsKey.currentState?.onItemTapped(3);
-                                    Navigator.pop(context);
-                                  },
-                                ),
-                              ],
+          icon: Icon(Icons.menu, color: Colors.black),
+          onPressed: () {
+            Navigator.of(context).push(
+              PageRouteBuilder(
+                opaque: false, // Keep background visible
+                pageBuilder: (_, __, ___) => Align(
+                  alignment: Alignment.centerLeft,
+                  child: FractionallySizedBox(
+                    widthFactor: 0.5, // Half screen width
+                    heightFactor: 1.0,
+                    child: Material(
+                      color: Colors.white,
+                      child: ListView(
+                        children: [
+                          ListTile(
+                            title: Text(
+                              "Dashboard",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
+                            onTap: () {
+                              tabsKey.currentState?.onItemTapped(0);
+                              Navigator.pop(context);
+                            },
                           ),
-                        ),
+                          ListTile(
+                            title: Text(
+                              "Complaints",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            onTap: () {
+                              tabsKey.currentState?.onItemTapped(1);
+                              Navigator.pop(context);
+                            },
+                          ),
+                          ListTile(
+                            title: Text(
+                              "Profile",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            onTap: () {
+                              tabsKey.currentState?.onItemTapped(4);
+                              Navigator.pop(context);
+                            },
+                          ),
+                          ListTile(
+                            title: Text(
+                              "Notification",
+                              style: GoogleFonts.poppins(
+                                fontWeight: FontWeight.w500,
+                              ),
+                            ),
+                            onTap: () {
+                              tabsKey.currentState?.onItemTapped(3);
+                              Navigator.pop(context);
+                            },
+                          ),
+                        ],
                       ),
-                      transitionsBuilder: (_, animation, __, child) {
-                        return SlideTransition(
-                          position: Tween<Offset>(
-                            begin: Offset(-1, 0),
-                            end: Offset(0, 0),
-                          ).animate(animation),
-                          child: child,
-                        );
-                      },
                     ),
+                  ),
+                ),
+                transitionsBuilder: (_, animation, __, child) {
+                  return SlideTransition(
+                    position: Tween<Offset>(
+                      begin: Offset(-1, 0),
+                      end: Offset(0, 0),
+                    ).animate(animation),
+                    child: child,
                   );
                 },
               ),
+            );
+          },
+        ),
 
         title: Text(
           "Profile",
-          style: GoogleFonts.josefinSans(
+          style: GoogleFonts.poppins(
             fontSize: 24,
-            fontWeight: FontWeight.w600,
+            fontWeight: FontWeight.w500,
             color: Appcolor.subtitlecolor,
           ),
         ),
@@ -135,30 +135,29 @@ class Profile extends StatelessWidget {
               SizedBox(width: 15),
               Text(
                 "Basic Details",
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 24,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.subtitlecolor,
                 ),
               ),
               SizedBox(height: 10),
               CustomTextField(label: "Full Name", hint: "Vaishnvi Mahurkar"),
-              SizedBox(height: 20), 
+              SizedBox(height: 20),
 
               CustomTextField(label: "Date of birth", hint: "23/07/2025"),
               SizedBox(height: 20),
               SizedBox(width: 15),
               Text(
                 "Contact Details",
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 24,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.subtitlecolor,
                 ),
               ),
               SizedBox(height: 10),
               CustomTextField(label: "Mobile Number", hint: "7822027057"),
-
             ],
           ),
         ),

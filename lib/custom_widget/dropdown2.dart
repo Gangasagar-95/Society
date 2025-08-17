@@ -37,7 +37,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         // Title above the dropdown
-        Text(widget.title, style: GoogleFonts.josefinSans(fontSize: 20)),
+        Text(widget.title, style: GoogleFonts.poppins(fontSize: 18)),
         const SizedBox(height: 8),
 
         // Dropdown
@@ -52,11 +52,11 @@ class _CustomDropdownState extends State<CustomDropdown> {
               value: _selectedValue,
               hint: Text(
                 widget.hintText,
-                style: GoogleFonts.josefinSans(fontSize: 20),
+                style: GoogleFonts.poppins(fontSize: 18),
               ),
               isExpanded: true,
-              style: GoogleFonts.josefinSans(
-                fontSize: 20,
+              style: GoogleFonts.poppins(
+                fontSize: 18,
                 color: Appcolor.subtitlecolor,
               ),
               items: widget.items.map((String item) {

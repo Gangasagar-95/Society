@@ -28,10 +28,10 @@ class MyIconButton extends StatelessWidget {
       icon: const Icon(Icons.search, size: 24),
       label: Text(
         label,
-        style: GoogleFonts.josefinSans(
+        style: GoogleFonts.poppins(
           color: Appcolor.bgcolor,
           fontSize: 17,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

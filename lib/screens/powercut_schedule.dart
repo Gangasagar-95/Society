@@ -23,17 +23,14 @@ class Powercut extends StatelessWidget {
     }
   }
 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-       // leading: Icon(Icons.arrow_back),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
+        // leading: Icon(Icons.arrow_back),
+        
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
@@ -52,108 +49,114 @@ class Powercut extends StatelessWidget {
               Center(
                 child: Text(
                   "Power Cut Schedule",
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
-          
+
               SizedBox(height: 35),
-          
+
               Text(
                 "Scheduled Date:",
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: Appcolor.bcolor,
                 ),
               ),
               Text(
                 "Augyst 4,2025",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.subtitlecolor,
-                ),
-              ),
-          
-              SizedBox(height: 35),
-          
-              Text(
-                "Time:",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.bcolor,
-                ),
-              ),
-          
-              Text(
-                "9:00 AM - 11:30",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.subtitlecolor,
-                ),
-              ),
-          
-              SizedBox(height: 35),
-          
-              Text(
-                "Affected Area:",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.bcolor,
-                ),
-              ),
-          
-              Text(
-                "Location",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.subtitlecolor,
-                ),
-              ),
-          
-              SizedBox(height: 35),
-          
-              Text(
-                "Impact:",
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  color: Appcolor.bcolor,
-                ),
-              ),
-          
-              Text(
-                "Electrician Supply Will Interrupted",
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
                   color: Appcolor.subtitlecolor,
                 ),
               ),
 
-              SizedBox(height: 30,),
-          
+              SizedBox(height: 35),
+
               Text(
-              "Need help ?",
-              textAlign: TextAlign.left,
-              style: GoogleFonts.josefinSans(
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Appcolor.pcolor,
+                "Time:",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.bcolor,
+                ),
               ),
-            ),
-          
-            // SizedBox(height: 10),
-            // MyIconButton(label: "Search for electrician", onPressed: (){}),
-            SizedBox(height: 10,),
-          
-            Row(
-              children: [
-                CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
-                SizedBox(width: 10,),
-                CallButton(label: "Municipality", onPressed: () => _makeDirectCall("02462234405"),),  
-              ],
-            ),
-            SizedBox(height: 20,)
+
+              Text(
+                "9:00 AM - 11:30",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.subtitlecolor,
+                ),
+              ),
+
+              SizedBox(height: 35),
+
+              Text(
+                "Affected Area:",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.bcolor,
+                ),
+              ),
+
+              Text(
+                "Location",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.subtitlecolor,
+                ),
+              ),
+
+              SizedBox(height: 35),
+
+              Text(
+                "Impact:",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.bcolor,
+                ),
+              ),
+
+              Text(
+                "Electrician Supply Will Interrupted",
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  color: Appcolor.subtitlecolor,
+                ),
+              ),
+
+              SizedBox(height: 30),
+
+              Text(
+                "Need help ?",
+                textAlign: TextAlign.left,
+                style: GoogleFonts.poppins(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Appcolor.pcolor,
+                ),
+              ),
+
+              // SizedBox(height: 10),
+              // MyIconButton(label: "Search for electrician", onPressed: (){}),
+              SizedBox(height: 10),
+
+              Row(
+                children: [
+                  CallButton(
+                    label: "Secretary",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
+                  SizedBox(width: 10),
+                  CallButton(
+                    label: "Municipality",
+                    onPressed: () => _makeDirectCall("02462234405"),
+                  ),
+                ],
+              ),
+              SizedBox(height: 20),
             ],
           ),
         ),

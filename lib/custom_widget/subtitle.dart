@@ -10,10 +10,10 @@ class Subtitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(
       text,
-      style: GoogleFonts.josefinSans(
+      style: GoogleFonts.poppins(
         color: Appcolor.subtitlecolor,
         fontSize: 20,
-        fontWeight: FontWeight.w600,
+        fontWeight: FontWeight.w500,
       ),
     );
   }

@@ -51,9 +51,9 @@ class CustomOutlineButton extends StatelessWidget {
               Text(
                 title,
                 textAlign: TextAlign.center,
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 18,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.subtitlecolor,
                 ),
               ),

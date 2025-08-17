@@ -51,13 +51,13 @@ class TabsState extends State<Tabs> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: //_subScreen ??
-       _Screens[_selectedIndex],
+          _Screens[_selectedIndex],
 
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Appcolor.bgcolor,
         selectedIconTheme: IconThemeData(color: Appcolor.primarycolor),
         selectedItemColor: Appcolor.primarycolor,
-        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w600),
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.w500),
         currentIndex: _selectedIndex,
         onTap: onItemTapped,
         type: BottomNavigationBarType.fixed,

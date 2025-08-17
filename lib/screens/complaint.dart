@@ -18,9 +18,9 @@ class Complaints extends StatelessWidget {
 
             Text(
               "Recent Complaints",
-              style: GoogleFonts.josefinSans(
+              style: GoogleFonts.poppins(
                 fontSize: 24,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
             SizedBox(height: 25),

@@ -15,17 +15,20 @@ class CustomSearchButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return OutlinedButton.icon(
       onPressed: onPressed,
-      icon: const Icon(Icons.search, color : Appcolor.primarycolor),
+      icon: const Icon(Icons.search, color: Appcolor.primarycolor),
       label: Text(
         text,
         style: const TextStyle(
           fontSize: 16,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
           color: Appcolor.primarycolor,
         ),
       ),
       style: OutlinedButton.styleFrom(
-        side: const BorderSide(color: Appcolor.primarycolor, width: 2), // outline
+        side: const BorderSide(
+          color: Appcolor.primarycolor,
+          width: 2,
+        ), // outline
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(30), // rounded corners

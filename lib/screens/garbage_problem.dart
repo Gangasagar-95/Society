@@ -35,9 +35,7 @@ class Garbage extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
+        
       ),
 
       body: Padding(
@@ -57,9 +55,9 @@ class Garbage extends StatelessWidget {
               Center(
                 child: Text(
                   "Garbage Not Picked",
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -90,25 +88,31 @@ class Garbage extends StatelessWidget {
               Text(
                 "Need help ?",
                 textAlign: TextAlign.left,
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.pcolor,
                 ),
               ),
 
               // SizedBox(height: 10),
               // MyIconButton(label: "Search for electrician", onPressed: (){}),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
 
               Row(
                 children: [
-                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
-                  SizedBox(width: 10,),
-                  CallButton(label: "Municipality", onPressed: () => _makeDirectCall("02462234405"),),  
+                  CallButton(
+                    label: "Secretary",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
+                  SizedBox(width: 10),
+                  CallButton(
+                    label: "Municipality",
+                    onPressed: () => _makeDirectCall("02462234405"),
+                  ),
                 ],
               ),
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
             ],
           ),
         ),

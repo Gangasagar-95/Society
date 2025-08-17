@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:ss/screens/bills_screen.dart';
 import 'package:ss/screens/call_carpenter.dart';
 import 'package:ss/screens/call_maid.dart';
 import 'package:ss/screens/call_painter.dart';
@@ -12,6 +13,7 @@ import 'package:ss/screens/create_account_screen.dart';
 import 'package:ss/screens/dashboard.dart';
 import 'package:ss/screens/dog_problem.dart';
 import 'package:ss/screens/email_verification_screen.dart';
+import 'package:ss/screens/emergency.dart';
 import 'package:ss/screens/forgot_password_screen.dart';
 import 'package:ss/screens/garbage_problem.dart';
 import 'package:ss/screens/information.dart';
@@ -76,6 +78,8 @@ class MyApp extends StatelessWidget {
         "/call_repair": (context) => CallRepair(),
         "/call_pest": (context) => CallPest(),
         "/call_painter": (context) => CallPainter(),
+        "/bill_screen" :(context) => BillsPaymentScreen(),
+        "/emergency" :(context) => EmergencyContactScreen(),
         
       },
     );

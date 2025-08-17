@@ -20,7 +20,8 @@ class NotificationCard extends StatelessWidget {
       height: 130,
       width: 400,
       decoration: BoxDecoration(
-        color: Appcolor.buttoncolor,
+        border: Border.all(color: Appcolor.primarycolor),
+        color: Appcolor.bgcolor,
         borderRadius: BorderRadius.circular(16),
       ),
       padding: const EdgeInsets.all(12),
@@ -31,10 +32,12 @@ class NotificationCard extends StatelessWidget {
             height: 50,
             width: 50,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(8),
-              color: Appcolor.buttoncolor,
+              shape: BoxShape.circle,
+              image: DecorationImage(image: AssetImage(imagePath)),
+              //borderRadius: BorderRadius.circular(8),
+              //color: Appcolor.buttoncolor,
             ),
-            child: Image.asset(imagePath, fit: BoxFit.contain),
+            // child: Image.asset(imagePath, fit: BoxFit.contain),
           ),
           const SizedBox(width: 12),
           // Title + subtitle
@@ -45,19 +48,19 @@ class NotificationCard extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                     color: Appcolor.subtitlecolor,
                   ),
                 ),
                 const SizedBox(height: 4),
                 Text(
                   subtitle,
-                  style: GoogleFonts.josefinSans(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
-                    color: Appcolor.bgcolor,
+                  style: GoogleFonts.poppins(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Appcolor.primarycolor,
                   ),
                 ),
               ],

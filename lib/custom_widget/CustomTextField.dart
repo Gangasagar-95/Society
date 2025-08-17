@@ -13,7 +13,7 @@ class CustomTextField extends StatelessWidget {
   CustomTextField({
     super.key,
     required this.label,
-    required this.hint, 
+    required this.hint,
     //required this.controller,
     // this.isDropdown = false,
     // this.suffixIcon,
@@ -25,28 +25,25 @@ class CustomTextField extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: GoogleFonts.josefinSans(fontSize: 20)),
+        Text(label, style: GoogleFonts.poppins(fontSize: 18)),
         TextFormField(
-          
           decoration: InputDecoration(
             hintText: hint,
-            hintStyle: GoogleFonts.josefinSans(
-              fontSize: 18,
+            hintStyle: GoogleFonts.poppins(
+              fontSize: 16,
               color: Appcolor.subtextcolor,
-              
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(color: Appcolor.primarycolor),
             ),
             contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 20),
-            
+
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
               borderSide: BorderSide(color: Appcolor.primarycolor),
             ),
           ),
-         
         ),
       ],
     );

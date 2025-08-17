@@ -24,7 +24,7 @@ class ContactCard extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       margin: const EdgeInsets.symmetric(vertical: 8),
       decoration: BoxDecoration(
-        color: Colors.white,//Color(0xFFEDE4FF), // light purple
+        color: Colors.white, //Color(0xFFEDE4FF), // light purple
         borderRadius: BorderRadius.circular(20),
         border: Border.all(color: Appcolor.primarycolor),
         boxShadow: [
@@ -40,9 +40,9 @@ class ContactCard extends StatelessWidget {
             children: [
               Text(
                 name,
-                style: GoogleFonts.josefinSans(
+                style: GoogleFonts.poppins(
                   fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
               ElevatedButton(
@@ -60,7 +60,7 @@ class ContactCard extends StatelessWidget {
                 ),
                 child: Text(
                   "Call Now",
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 18,
                     fontWeight: FontWeight.w500,
                   ),
@@ -72,9 +72,9 @@ class ContactCard extends StatelessWidget {
           // Role
           Text(
             role,
-            style: GoogleFonts.josefinSans(
+            style: GoogleFonts.poppins(
               fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
               color: Appcolor.primarycolor,
             ),
           ),
@@ -82,17 +82,17 @@ class ContactCard extends StatelessWidget {
           // Available Time
           Text(
             "Available: $availableTime",
-            style: GoogleFonts.josefinSans(
+            style: GoogleFonts.poppins(
               fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
             ),
           ),
           // Towers
           Text(
             "Address: $address",
-            style: GoogleFonts.josefinSans(
+            style: GoogleFonts.poppins(
               fontSize: 16,
-              fontWeight: FontWeight.w600,
+              fontWeight: FontWeight.w500,
             ),
           ),
         ],

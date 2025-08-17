@@ -8,7 +8,6 @@ import 'package:ss/custom_widget/custom_circle.dart';
 import 'package:ss/custom_widget/dashbour_blue_container.dart';
 import 'package:ss/custom_widget/outline_button_dashboard.dart';
 
-
 class Dashscreen extends StatelessWidget {
   const Dashscreen({super.key});
 
@@ -29,9 +28,9 @@ class Dashscreen extends StatelessWidget {
                 children: [
                   Text(
                     "Household Services",
-                    style: GoogleFonts.josefinSans(
+                    style: GoogleFonts.poppins(
                       fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       color: Appcolor.subtitlecolor,
                     ),
                   ),

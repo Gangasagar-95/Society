@@ -5,13 +5,9 @@ import 'package:ss/Color/app_colors.dart';
 class CallButton extends StatelessWidget {
   final String label;
   final VoidCallback onPressed;
-  
-  const CallButton({
-    Key? key,
-    required this.label,
-    required this.onPressed,
- 
-  }) : super(key: key);
+
+  const CallButton({Key? key, required this.label, required this.onPressed})
+    : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,26 +15,19 @@ class CallButton extends StatelessWidget {
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
         minimumSize: Size(160, 50),
-        backgroundColor: const Color.fromARGB(
-          255,
-          76,
-          186,
-          80,
-        ), // Button color
+        backgroundColor: const Color.fromARGB(255, 76, 186, 80), // Button color
         foregroundColor: Colors.white, // Text & icon color
         //padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(12),
-        ),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
       icon: const Icon(Icons.call, size: 24),
       label: Text(
         label,
-        style: GoogleFonts.josefinSans(
-        color: Appcolor.bgcolor,
-        fontSize: 15,
-        fontWeight: FontWeight.w700,
-      ),
+        style: GoogleFonts.poppins(
+          color: Appcolor.bgcolor,
+          fontSize: 14,
+          fontWeight: FontWeight.w500,
+        ),
       ),
     );
   }

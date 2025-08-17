@@ -3,14 +3,51 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/contact_card.dart';
-import 'package:ss/custom_widget/search_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class CallCarpenter extends StatelessWidget {
+class CallCarpenter extends StatefulWidget {
   const CallCarpenter({super.key});
 
+  @override
+  State<CallCarpenter> createState() => _CallCarpenterState();
+}
+
+class _CallCarpenterState extends State<CallCarpenter> {
+  final TextEditingController _searchController = TextEditingController();
+  String _searchQuery = "";
+
+  final List<Map<String, String>> _carpenters = [
+    {
+      "name": "Niraj Gothe",
+      "role": "Carpenter",
+      "availableTime": "9am to 9pm",
+      "address": "Nanded",
+      "phone": "+917822027057",
+    },
+    {
+      "name": "Shiv Patre",
+      "role": "Carpenter",
+      "availableTime": "12pm to 10pm",
+      "address": "Nanded",
+      "phone": "+917822027057",
+    },
+    {
+      "name": "Ajay Rathi",
+      "role": "Carpenter",
+      "availableTime": "11am to 4pm",
+      "address": "Nanded",
+      "phone": "+917822027057",
+    },
+    {
+      "name": "Suraj Tambare",
+      "role": "Carpenter",
+      "availableTime": "9am to 10pm",
+      "address": "Nanded",
+      "phone": "+917822027057",
+    },
+  ];
+
   Future<void> _makeDirectCall(String phoneNumber) async {
-    // Request permission
     if (await Permission.phone.request().isGranted) {
       final Uri callUri = Uri(scheme: 'tel', path: phoneNumber);
       if (await canLaunchUrl(callUri)) {
@@ -25,66 +62,79 @@ class CallCarpenter extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // filter list based on search
+    final List<Map<String, String>> filteredCarpenters = _carpenters.where((c) {
+      final query = _searchQuery.toLowerCase();
+      return c["name"]!.toLowerCase().contains(query) ||
+          c["role"]!.toLowerCase().contains(query) ||
+          c["address"]!.toLowerCase().contains(query);
+    }).toList();
+
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
-        //leading: Icon(Icons.arrow_back),
-        title: Text("Carpenter",style: GoogleFonts.josefinSans(
-                  fontSize: 23,
-                  fontWeight: FontWeight.w600,
-                  color: Appcolor.primarycolor,
-                ),),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
-      ),
-
-      body: 
-      
-      Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: 
-        
-        SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomSearchButton(text: "search", onPressed: (){}),
-              SizedBox(height: 10,),
-              ContactCard(
-                name: "Sunil Rathod",
-                role: "Carpenter",
-                availableTime: "9am to 9pm",
-                address: "nanded",
-                onCallTap: () => _makeDirectCall("+917822027057"),
-              ),
-              SizedBox(height: 10),
-              ContactCard(
-                name: "Gokul Devke",
-                role: "Carpenter",
-                availableTime: "12pm to 10pm",
-                address: "nanded",
-                onCallTap: () => _makeDirectCall("+917822027057"),
-              ),
-              SizedBox(height: 10),
-              ContactCard(
-                name: "Vijay Tiwari",
-                role: "Carpenter",
-                availableTime: "11am to 4pm",
-                address: "nanded",
-                onCallTap: () => _makeDirectCall("+917822027057"),
-              ),
-              SizedBox(height: 10),
-              ContactCard(
-                name: "Swapnil Rathi",
-                role: "Carpenter",
-                availableTime: "9am to 10pm",
-                address: "nanded",
-                onCallTap: () => _makeDirectCall("+917822027057"),
-              ),
-              SizedBox(height: 10),
-            ],
+        title: Text(
+          "Carpenter",
+          style: GoogleFonts.poppins(
+            fontSize: 23,
+            fontWeight: FontWeight.w500,
+            color: Appcolor.primarycolor,
           ),
+        ),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          children: [
+            // 🔍 Search Bar
+            TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: "Search ",
+                prefixIcon: Icon(Icons.search, color: Appcolor.primarycolor),
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(color: Appcolor.primarycolor),
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                enabledBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: Appcolor.primarycolor),
+                ),
+              ),
+              onChanged: (value) {
+                setState(() {
+                  _searchQuery = value;
+                });
+              },
+            ),
+            const SizedBox(height: 20),
+
+            // 📋 Carpenter list
+            Expanded(
+              child: filteredCarpenters.isEmpty
+                  ? const Center(child: Text("No carpenter found"))
+                  : ListView.builder(
+                      itemCount: filteredCarpenters.length,
+                      itemBuilder: (context, index) {
+                        final carpenter = filteredCarpenters[index];
+                        return Column(
+                          children: [
+                            ContactCard(
+                              name: carpenter["name"]!,
+                              role: carpenter["role"]!,
+                              availableTime: carpenter["availableTime"]!,
+                              address: carpenter["address"]!,
+                              onCallTap: () =>
+                                  _makeDirectCall(carpenter["phone"]!),
+                            ),
+                            const SizedBox(height: 10),
+                          ],
+                        );
+                      },
+                    ),
+            ),
+          ],
         ),
       ),
     );

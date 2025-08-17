@@ -19,10 +19,10 @@ class CustomButton extends StatelessWidget {
       ),
       child: Text(
         text,
-        style: GoogleFonts.josefinSans(
+        style: GoogleFonts.poppins(
           color: Appcolor.bgcolor,
           fontSize: 20,
-          fontWeight: FontWeight.w600,
+          fontWeight: FontWeight.w500,
         ),
       ),
     );

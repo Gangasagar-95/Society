@@ -57,7 +57,9 @@ class ComplaintButton extends StatelessWidget {
                 ),
                 Text(
                   status,
-                  style: TextStyle(fontSize: 18, color: Colors.grey.shade600),
+                  style: TextStyle(fontSize: 18,color: status == "Submitted" ? Appcolor.gcolor : Appcolor.pcolor,
+                  ),
+  
                 ),
               ],
             ),

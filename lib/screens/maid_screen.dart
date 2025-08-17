@@ -42,9 +42,7 @@ class MaidScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
+        
       ),
 
       body: Padding(
@@ -64,9 +62,9 @@ class MaidScreen extends StatelessWidget {
               Center(
                 child: Text(
                   "Maid Not coming",
-                  style: GoogleFonts.josefinSans(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                  style: GoogleFonts.poppins(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -74,7 +72,7 @@ class MaidScreen extends StatelessWidget {
               SizedBox(height: 20),
               CustomDropdown(
                 title: 'Category',
-                items: ["Cooker", "Sweeper", "Laundary", "Child care", "Other"],
+                items: ["Cooker", "Sweeper", "Laundary", "Child care","utensils", "Other"],
                 hintText: 'select category',
               ),
               //CategoryDropdownField(),
@@ -89,26 +87,36 @@ class MaidScreen extends StatelessWidget {
               Text(
                 "Need help ?",
                 textAlign: TextAlign.left,
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.pcolor,
                 ),
               ),
 
               SizedBox(height: 10),
-              MyIconButton(label: "Search for maid", onPressed: (){Get.toNamed(Approutes.callmaid);}),
-              SizedBox(height: 10,),
+              MyIconButton(
+                label: "Search for maid",
+                onPressed: () {
+                  Get.toNamed(Approutes.callmaid);
+                },
+              ),
+              SizedBox(height: 10),
 
               Row(
                 children: [
-                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
-                  SizedBox(width: 10,),
-                  CallButton(label: "Maid", onPressed: () => _makeDirectCall("+917822027057"),),  
+                  CallButton(
+                    label: "Secretary",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
+                  SizedBox(width: 10),
+                  CallButton(
+                    label: "Maid",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
                 ],
               ),
-              SizedBox(height: 20,)
-
+              SizedBox(height: 20),
 
               //ContactCard(
               //   name: "Sunita sathe",
@@ -131,10 +139,7 @@ class MaidScreen extends StatelessWidget {
               //   towers: "A,B,C",
               //   onCallTap: () => _makeDirectCall("+918888131220"),
 
-
               // ),
-              
-              
             ],
           ),
         ),

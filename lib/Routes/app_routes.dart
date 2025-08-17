@@ -26,6 +26,8 @@ class Approutes {
   static const String callrepair = "/call_repair";
   static const String callpest = "/call_pest";
   static const String callpainter = "/call_painter";
+  static const String bill = "/bill_screen";
+  static const String emergency = "/emergency";
 
 
 }

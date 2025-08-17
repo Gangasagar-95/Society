@@ -37,9 +37,7 @@ class NoWatersupply extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
-        actions: [
-          Row(children: [Icon(Icons.person_2_rounded), SizedBox(width: 15)]),
-        ],
+        
       ),
 
       body: Padding(
@@ -59,9 +57,9 @@ class NoWatersupply extends StatelessWidget {
               Center(
                 child: Text(
                   "No Water Supply",
-                  style: GoogleFonts.josefinSans(
+                  style: GoogleFonts.poppins(
                     fontSize: 24,
-                    fontWeight: FontWeight.w600,
+                    fontWeight: FontWeight.w500,
                   ),
                 ),
               ),
@@ -82,25 +80,36 @@ class NoWatersupply extends StatelessWidget {
               Text(
                 "Need help ?",
                 textAlign: TextAlign.left,
-                style: GoogleFonts.josefinSans(
-                  fontSize: 20,
-                  fontWeight: FontWeight.w600,
+                style: GoogleFonts.poppins(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
                   color: Appcolor.pcolor,
                 ),
               ),
 
               SizedBox(height: 10),
-              MyIconButton(label: "Search for plumber", onPressed: (){Get.toNamed(Approutes.callplumber);}),
-              SizedBox(height: 10,),
+              MyIconButton(
+                label: "Search for plumber",
+                onPressed: () {
+                  Get.toNamed(Approutes.callplumber);
+                },
+              ),
+              SizedBox(height: 10),
 
               Row(
                 children: [
-                  CallButton(label: "Secretary", onPressed: () => _makeDirectCall("+917822027057"),),
-                  SizedBox(width: 10,),
-                  CallButton(label: "Municipality", onPressed: () => _makeDirectCall("02462234405"),),  
+                  CallButton(
+                    label: "Secretary",
+                    onPressed: () => _makeDirectCall("+917822027057"),
+                  ),
+                  SizedBox(width: 10),
+                  CallButton(
+                    label: "Municipality",
+                    onPressed: () => _makeDirectCall("02462234405"),
+                  ),
                 ],
               ),
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
             ],
           ),
         ),

@@ -50,7 +50,7 @@ class _CategoryDropdownFieldState extends State<CategoryDropdownField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("Category", style: GoogleFonts.josefinSans(fontSize: 20)),
+        Text("Category", style: GoogleFonts.poppins(fontSize: 20)),
 
         TextFormField(
           controller: _controller,
