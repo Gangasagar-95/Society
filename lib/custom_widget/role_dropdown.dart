@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
 
+
 class RoleDropdown extends StatefulWidget {
   final String title;
   final List<String> items;
@@ -28,6 +29,7 @@ class RoleDropdown extends StatefulWidget {
 }
 
 class _CustomDropdownState extends State<RoleDropdown> {
+  //final Number no = Number();
   final infoctrl = Get.put(InformationCtrl());
   String? _selectedValue;
 
@@ -60,7 +62,6 @@ class _CustomDropdownState extends State<RoleDropdown> {
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
-              
               value: _selectedValue,
               hint: Text(
                 widget.hintText,
@@ -77,8 +78,15 @@ class _CustomDropdownState extends State<RoleDropdown> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value;
-                  infoctrl.roleCtrl.text = value ?? '';
+                  //infoctrl.roleCtrl.text = value ?? '';
                 });
+                if (value != null) {
+                  // 👇 Update controller role & phone
+                  infoctrl.setRole(value);
+                }
+                // if (_selectedValue == "Secratery") {
+                //   Numbers.rolePhoneNumbers["Secretary": ];
+                // }
                 if (widget.onChanged != null) {
                   widget.onChanged!(value);
                 }

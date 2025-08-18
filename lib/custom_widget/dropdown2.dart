@@ -79,6 +79,8 @@ class _CustomDropdownState extends State<CustomDropdown> {
                   _selectedValue = value;
                   //infoctrl.roleCtrl.text = value ?? '';
                 });
+                
+
                 if (widget.onChanged != null) {
                   widget.onChanged!(value);
                 }

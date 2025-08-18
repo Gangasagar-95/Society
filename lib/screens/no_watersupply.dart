@@ -25,7 +25,7 @@ class _NoWatersupplyState extends State<NoWatersupply> {
   bool showError = false;
   final descriptionCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
-  final Number no = Number();
+  //final Number no = Number();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     if (await Permission.phone.request().isGranted) {
@@ -149,12 +149,12 @@ class _NoWatersupplyState extends State<NoWatersupply> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall(no.secratery),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Secretary"]!),
                     ),
                     const SizedBox(width: 10),
                     CallButton(
                       label: "Municipality",
-                      onPressed: () => _makeDirectCall(no.municipality),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Municipality"]!),
                     ),
                   ],
                 ),

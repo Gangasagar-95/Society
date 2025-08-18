@@ -3,11 +3,11 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/contact_card.dart';
-import 'package:ss/custom_widget/number.dart';
+//import 'package:ss/custom_widget/number.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CallCarpenter extends StatefulWidget {
-  final Number no = Number();
+  //final Number no = Number();
  CallCarpenter({super.key});
 
   @override

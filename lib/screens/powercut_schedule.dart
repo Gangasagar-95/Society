@@ -9,7 +9,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class Powercut extends StatelessWidget {
 
-  final Number no = Number();
+  //final Number no = Number();
    Powercut({super.key});
 
   Future<void> _makeDirectCall(String phoneNumber) async {
@@ -150,12 +150,12 @@ class Powercut extends StatelessWidget {
                 children: [
                   CallButton(
                     label: "Secretary",
-                    onPressed: () => _makeDirectCall(no.secratery),
+                    onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Secretary"]!),
                   ),
                   SizedBox(width: 10),
                   CallButton(
                     label: "Municipality",
-                    onPressed: () => _makeDirectCall(no.municipality),
+                    onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Municipality"]!),
                   ),
                 ],
               ),

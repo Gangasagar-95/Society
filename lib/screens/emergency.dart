@@ -7,7 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyContactScreen extends StatelessWidget {
 
-  final Number no = Number();
+  //final Number no = Number();
    EmergencyContactScreen({super.key});
 
   Future<void> _makeDirectCall(String phoneNumber) async {
@@ -44,10 +44,10 @@ class EmergencyContactScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall(no.ambulance)),
-            _buildEmergencyTile(Icons.local_fire_department, "Fire Brigade", "101", Appcolor.primarycolor,() => _makeDirectCall(no.fire_brigade)),
-            _buildEmergencyTile(Icons.local_police, "Police", "100", Appcolor.primarycolor,() => _makeDirectCall(no.police)),
-            _buildEmergencyTile(Icons.local_hospital_outlined, "Nearest Hospital", "7942689918",Appcolor.primarycolor,() => _makeDirectCall(no.Near_hospital)),
+            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Abmulance"]!)),
+            _buildEmergencyTile(Icons.local_fire_department, "Fire Brigade", "101", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Fire Brigade"]!)),
+            _buildEmergencyTile(Icons.local_police, "Police", "100", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Police"]!)),
+            _buildEmergencyTile(Icons.local_hospital_outlined, "Nearest Hospital", "7942689918",Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Nearby Hospital"]!)),
           ],
         ),
       ),

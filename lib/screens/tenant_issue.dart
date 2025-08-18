@@ -24,7 +24,7 @@ class _TenantissueState extends State<Tenantissue> {
   bool showError = false;
   final descriptionCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
-  final Number no = Number();
+  //final Number no = Number();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     if (await Permission.phone.request().isGranted) {
@@ -153,12 +153,12 @@ class _TenantissueState extends State<Tenantissue> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall(no.secratery),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Municipality"]!),
                     ),
                     SizedBox(width: 10),
                     CallButton(
                       label: "house owner",
-                      onPressed: () => _makeDirectCall(no.house_owner),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["House Owner"]!),
                     ),
                   ],
                 ),

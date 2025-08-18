@@ -25,7 +25,7 @@ class _MaidScreenState extends State<MaidScreen> {
   bool showError = false; //  track validation state
   final descriptionCtrl = TextEditingController();
   final dateCtrl = TextEditingController();
-  Number no = Number();
+  //Number no = Number();
 
   final _formkey = GlobalKey<FormState>();
 
@@ -184,12 +184,12 @@ class _MaidScreenState extends State<MaidScreen> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall(no.secratery),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Secretary"]!),
                     ),
                     const SizedBox(width: 10),
                     CallButton(
                       label: "Maid",
-                      onPressed: () => _makeDirectCall(no.maid),
+                      onPressed: () => _makeDirectCall(Numbers.rolePhoneNumbers["Maid"]!),
                     ),
                   ],
                 ),

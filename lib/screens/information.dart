@@ -5,6 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
 
+
 import 'package:ss/custom_widget/question_text.dart';
 import 'package:ss/custom_widget/role_dropdown.dart';
 
@@ -20,29 +21,25 @@ class _InformationscreenState extends State<Informationscreen> {
   bool showError = false;
   final _formKey = GlobalKey<FormState>();
   final infoctrl = Get.put(InformationCtrl());
+  //final Number no = Number();
 
   void continuee() {
     if (_formKey.currentState!.validate()) {
-       if (selectedRole == null) {
-                        setState(() {
-                          showError = true;
-                        });
-                      } else {
-                        // ✅ proceed with complaint submission
-                        Get.snackbar(
-                          "Login Successful",
-                          "Hello ${infoctrl.nameCtrl.text}, welcome to Society Setu ",
-                          backgroundColor: const Color.fromARGB(
-                            255,
-                            198,
-                            157,
-                            255,
-                          ),
-                          //colorText: Appcolor.bgcolor
-                        );
-                        infoctrl.continuee();
-                      }
-      
+      if (selectedRole == null) {
+        setState(() {
+          showError = true;
+        });
+      } else {
+        // ✅ proceed with complaint submission
+        Get.snackbar(
+          "Login Successful",
+          "Hello ${infoctrl.nameCtrl.text}, welcome to Society Setu ",
+          backgroundColor: const Color.fromARGB(255, 198, 157, 255),
+          //colorText: Appcolor.bgcolor
+        );
+        infoctrl.continuee();
+      }
+
       // You can save data here if needed
       // Example:
       // print(infoctrl.nameCtrl.text);
@@ -160,13 +157,15 @@ class _InformationscreenState extends State<Informationscreen> {
                   SizedBox(height: 14),
                   RoleDropdown(
                     title: 'Role',
-                    items: ["Recident", "Secratery", "Tenent", "House owner"],
+                    items: ["Recident", "Secretary", "Tenent", "House owner"],
                     hintText: 'Select role',
                     onChanged: (value) {
                       setState(() {
                         selectedRole = value;
                         //infoctrl.nameee = selectedRole;
                         showError = false;
+                        
+                        
                       });
                     },
                   ),
