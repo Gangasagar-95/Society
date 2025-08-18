@@ -3,11 +3,14 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/call_button.dart';
+import 'package:ss/custom_widget/number.dart';
 //import 'package:ss/custom_widget/icon_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Powercut extends StatelessWidget {
-  const Powercut({super.key});
+
+  final Number no = Number();
+   Powercut({super.key});
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
@@ -147,12 +150,12 @@ class Powercut extends StatelessWidget {
                 children: [
                   CallButton(
                     label: "Secretary",
-                    onPressed: () => _makeDirectCall("+917822027057"),
+                    onPressed: () => _makeDirectCall(no.secratery),
                   ),
                   SizedBox(width: 10),
                   CallButton(
                     label: "Municipality",
-                    onPressed: () => _makeDirectCall("02462234405"),
+                    onPressed: () => _makeDirectCall(no.municipality),
                   ),
                 ],
               ),

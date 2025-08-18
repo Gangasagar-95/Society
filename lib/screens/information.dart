@@ -1,35 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
-//import 'package:ss/Routes/app_routes.dart';
+import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:ss/custom_widget/question_text.dart';
-//import 'package:ss/screens/profile_screen.dart';
 
-class Informationscreen extends StatelessWidget {
-  
-  final _formkey = GlobalKey<FormState>();
+class Informationscreen extends StatefulWidget {
+  const Informationscreen({super.key});
 
+  @override
+  _InformationscreenState createState() => _InformationscreenState();
+}
+
+class _InformationscreenState extends State<Informationscreen> {
+  String? selectedRole;
+  bool showError = false;
+  final _formKey = GlobalKey<FormState>();
   final infoctrl = Get.put(InformationCtrl());
 
-  Informationscreen({super.key});
-
-
-  void continuee() async {
-    if (_formkey.currentState!.validate()) {
+  void continuee() {
+    if (_formKey.currentState!.validate()) {
       infoctrl.continuee();
-
-      //final prefs = await SharedPreferences.getInstance();
-      // await prefs.setString("name", nameCtrl.text.trim());
-      // await prefs.setString("flat", flatCtrl.text.trim());
-      // await prefs.setString("phone", phoneCtrl.text.trim());
-      // await prefs.setString("address", addressCtrl.text.trim());
-      // await prefs.setBool("isLoggedIn", true);
-
-      // Get.offNamed(Approutes.tabscreen);
+      // You can save data here if needed
+      // Example:
+      // print(infoctrl.nameCtrl.text);
     }
   }
 
@@ -39,8 +35,10 @@ class Informationscreen extends StatelessWidget {
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(
         backgroundColor: Appcolor.primarycolor,
-        leading: Icon(Icons.arrow_back_ios_new_outlined),
-
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new_outlined),
+          onPressed: () => Navigator.pop(context),
+        ),
         title: Text(
           "Personal Details",
           style: GoogleFonts.poppins(
@@ -54,13 +52,13 @@ class Informationscreen extends StatelessWidget {
         padding: const EdgeInsets.all(10.0),
         child: SingleChildScrollView(
           child: Form(
-            key: _formkey,
+            key: _formKey,
             child: Padding(
               padding: const EdgeInsets.all(15),
               child: Column(
                 children: [
                   Text(
-                    "Enter Your Details ",
+                    "Enter Your Details",
                     textAlign: TextAlign.center,
                     style: GoogleFonts.poppins(
                       fontSize: 22,
@@ -78,63 +76,94 @@ class Informationscreen extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 25),
+
+                  // Full Name
                   QuestionText(
                     label: "Full Name",
                     hint: "Name Surname",
                     controller: infoctrl.nameCtrl,
                     validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return "Name is required";
-                  }
-                  return null;
-                },
+                      if (value == null || value.trim().isEmpty) {
+                        return "Name is required";
+                      }
+                      return null;
+                    },
                   ),
 
                   SizedBox(height: 14),
+
+                  // Flat No/House No
                   QuestionText(
                     label: "Flat No/House No",
                     hint: "Tower - flat.no",
                     controller: infoctrl.flatCtrl,
                     validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return "Flat no is required";
-                  }
-                  return null;
-                },
+                      if (value == null || value.trim().isEmpty) {
+                        return "Flat no is required";
+                      }
+                      return null;
+                    },
                   ),
+
                   SizedBox(height: 14),
+
+                  // Phone Number
                   QuestionText(
-                    label: "phone number",
+                    label: "Phone Number",
                     hint: "+91 XXXX XXX XXX",
                     controller: infoctrl.phoneCtrl,
-                    validator:  (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return "Phone number is required";
-                  } else if (value.trim().length < 10) {
-                    return "Phone number must be at least 10 digits";
-                  }
-                  return null;
-                },
+                    validator: (value) {
+                      if (value == null || value.trim().isEmpty) {
+                        return "Phone number is required";
+                      } else if (value.trim().length < 10) {
+                        return "Phone number must be at least 10 digits";
+                      }
+                      return null;
+                    },
                   ),
+
                   SizedBox(height: 14),
+
+                  // Address
                   QuestionText(
                     label: "Address",
                     hint: "xyz",
                     controller: infoctrl.addressCtrl,
                     validator: (value) {
-                  if (value == null || value.trim().isEmpty) {
-                    return "Address is required";
-                  }
-                  return null;
-                },
+                      if (value == null || value.trim().isEmpty) {
+                        return "Address is required";
+                      }
+                      return null;
+                    },
                   ),
 
-                  ElevatedButton(
-                    onPressed: () {
-                      continuee(
-                        //context
-                      );
+                  SizedBox(height: 14),
+                  CustomDropdown(
+                    title: 'Role',
+                    items: ["Recident", "Secratery", "Tenent", "House owner"],
+                    hintText: 'Select role',
+                    onChanged: (value) {
+                      setState(() {
+                        selectedRole = value;
+                        infoctrl.nameee = selectedRole;
+                        showError = false;
+                      });
                     },
+                  ),
+                  showError
+                      ? Padding(
+                          padding: EdgeInsets.only(top: 8, left: 8),
+                          child: Text(
+                            "⚠ Please select a role",
+                            style: TextStyle(color: Colors.red, fontSize: 14),
+                          ),
+                        )
+                      : SizedBox(),
+
+                  SizedBox(height: 25),
+
+                  ElevatedButton(
+                    onPressed: continuee,
                     style: ElevatedButton.styleFrom(
                       minimumSize: Size(350, 50),
                       backgroundColor: Appcolor.primarycolor,
@@ -160,4 +189,3 @@ class Informationscreen extends StatelessWidget {
     );
   }
 }
-

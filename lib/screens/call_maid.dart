@@ -22,28 +22,28 @@ class _CallMaidState extends State<CallMaid> {
       "role": "Cook",
       "availableTime": "9am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "9075577972",
     },
     {
       "name": "Rupali Tidke",
       "role": "Utensils",
       "availableTime": "8am to 1pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "9075577972",
     },
     {
       "name": "Swati Dahale",
       "role": "Sweeper",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "9075577972",
     },
     {
       "name": "Vaishali\nRampatwar",
       "role": "Cooker",
       "availableTime": "9am to 8pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "9075577972",
     },
   ];
 

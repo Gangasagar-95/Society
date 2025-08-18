@@ -1,8 +1,9 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
+import 'package:ss/Controller/information_ctrl.dart';
 
 class CustomDropdown extends StatefulWidget {
   final String title;
@@ -10,7 +11,7 @@ class CustomDropdown extends StatefulWidget {
   final String hintText;
   final Function(String?)? onChanged;
   final String? selectedValue;
-  final bool showError; 
+  final bool showError;
 
   const CustomDropdown({
     super.key,
@@ -19,7 +20,7 @@ class CustomDropdown extends StatefulWidget {
     required this.hintText,
     this.onChanged,
     this.selectedValue,
-    this.showError = false, 
+    this.showError = false,
   });
 
   @override
@@ -27,6 +28,7 @@ class CustomDropdown extends StatefulWidget {
 }
 
 class _CustomDropdownState extends State<CustomDropdown> {
+  final infoctrl = Get.put(InformationCtrl());
   String? _selectedValue;
 
   @override
@@ -50,13 +52,15 @@ class _CustomDropdownState extends State<CustomDropdown> {
           decoration: BoxDecoration(
             border: Border.all(
               color: widget.showError
-                  ? Colors.red // 👈 red border if error
+                  ? Colors
+                        .red // 👈 red border if error
                   : Appcolor.primarycolor,
             ),
             borderRadius: BorderRadius.circular(8),
           ),
           child: DropdownButtonHideUnderline(
             child: DropdownButton<String>(
+              
               value: _selectedValue,
               hint: Text(
                 widget.hintText,
@@ -73,6 +77,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value;
+                  infoctrl.roleCtrl.text = value ?? '';
                 });
                 if (widget.onChanged != null) {
                   widget.onChanged!(value);

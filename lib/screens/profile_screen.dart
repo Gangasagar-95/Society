@@ -287,6 +287,8 @@ class _ProfileState extends State<Profile> {
               SizedBox(height: 10),
               //CustomTextField(label: "Address", hint: address),
               TextShow(text: "${infoctrl.addressCtrl.text}", label: "Address"),
+              SizedBox(height: 10,),
+              TextShow(text: "${infoctrl.roleCtrl.text}", label: "Role"),
 
               SizedBox(height: 20),
               Text(

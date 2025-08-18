@@ -22,28 +22,28 @@ class _CallPainterState extends State<CallPainter> {
       "role": "Painter",
       "availableTime": "9am to 9pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "919702438376",
     },
     {
       "name": "Anuj Pawar",
       "role": "Painter",
       "availableTime": "12pm to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "+919702438376",
     },
     {
       "name": "Kiran Waghmare",
       "role": "Painter",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "+919702438376",
     },
     {
       "name": "Piyush Tele",
       "role": "Painter",
       "availableTime": "9am to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "+919702438376",
     },
   ];
 

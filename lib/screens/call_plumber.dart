@@ -22,28 +22,28 @@ class _CallPlumberState extends State<CallPlumber> {
       "role": "Plumber",
       "availableTime": "9am to 9pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "09970786799",
     },
     {
       "name": "Gokul Devke",
       "role": "Plumber",
       "availableTime": "12pm to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "09970786799",
     },
     {
       "name": "Vijay Tiwari",
       "role": "Plumber",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "09970786799",
     },
     {
       "name": "Swapnil Rathi",
       "role": "Plumber",
       "availableTime": "9am to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "09970786799",
     },
   ];
 

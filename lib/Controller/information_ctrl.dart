@@ -12,6 +12,7 @@ class InformationCtrl extends GetxController {
   final flatCtrl = TextEditingController();
   final phoneCtrl = TextEditingController();
   final addressCtrl = TextEditingController();
+  final roleCtrl = TextEditingController();
 
   void continuee() async {
     final prefs = await SharedPreferences.getInstance();
@@ -19,7 +20,7 @@ class InformationCtrl extends GetxController {
 
     Get.offNamed(Approutes.tabscreen);
 
-    nameee = nameCtrl.text;
+    nameee = roleCtrl.text;
 
     await prefs.setString("name", nameCtrl.text.trim());
     await prefs.setString("flat", flatCtrl.text.trim());

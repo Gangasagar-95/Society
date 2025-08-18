@@ -8,6 +8,7 @@ import 'package:ss/custom_widget/custom_button.dart';
 //import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
 import 'package:ss/custom_widget/icon_button.dart';
+import 'package:ss/custom_widget/number.dart';
 import 'package:ss/custom_widget/question_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -24,6 +25,7 @@ class _MaidScreenState extends State<MaidScreen> {
   bool showError = false; //  track validation state
   final descriptionCtrl = TextEditingController();
   final dateCtrl = TextEditingController();
+  Number no = Number();
 
   final _formkey = GlobalKey<FormState>();
 
@@ -182,12 +184,12 @@ class _MaidScreenState extends State<MaidScreen> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall("+917822027057"),
+                      onPressed: () => _makeDirectCall(no.secratery),
                     ),
                     const SizedBox(width: 10),
                     CallButton(
                       label: "Maid",
-                      onPressed: () => _makeDirectCall("+917822027057"),
+                      onPressed: () => _makeDirectCall(no.maid),
                     ),
                   ],
                 ),

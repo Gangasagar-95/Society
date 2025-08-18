@@ -22,28 +22,28 @@ class _CallPestState extends State<CallPest> {
       "role": "Pest Control",
       "availableTime": "9am to 9pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "8657589608",
     },
     {
       "name": "Sarth Kabra",
       "role": "Pest Control",
       "availableTime": "12pm to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "8657589608",
     },
     {
       "name": "Vishvanath Dev",
       "role": "Pest Control",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "8657589608",
     },
     {
       "name": "Atharva Chamche",
       "role": "Pest Control",
       "availableTime": "9am to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "8657589608",
     },
   ];
 

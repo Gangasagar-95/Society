@@ -17,7 +17,7 @@ class LoginCtrl extends GetxController {
 
     Get.offNamed(Approutes.informationscreen);
 
-    var emailll = emailCtrl.value;
+    //var emailll = emailCtrl.value;
 
     await prefs.setString("email", emailCtrl.text);
     await prefs.setString("pass", passwordCtrl.text);

@@ -22,28 +22,28 @@ class _CallRepairState extends State<CallRepair> {
       "role": "Electrician",
       "availableTime": "9am to 9pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07041943994",
     },
     {
       "name": "Prashant Sakhre",
       "role": "Electrician",
       "availableTime": "12pm to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07041943994",
     },
     {
       "name": "Vivek Kale",
       "role": "Electrician",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07041943994",
     },
     {
       "name": "Swami Gore",
       "role": "Electrician",
       "availableTime": "9am to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07041943994",
     },
   ];
 

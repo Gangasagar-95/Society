@@ -2,10 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
+import 'package:ss/custom_widget/number.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class EmergencyContactScreen extends StatelessWidget {
-  const EmergencyContactScreen({super.key});
+
+  final Number no = Number();
+   EmergencyContactScreen({super.key});
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
@@ -41,10 +44,10 @@ class EmergencyContactScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall("108")),
-            _buildEmergencyTile(Icons.local_fire_department, "Fire Brigade", "101", Appcolor.primarycolor,() => _makeDirectCall("101")),
-            _buildEmergencyTile(Icons.local_police, "Police", "100", Appcolor.primarycolor,() => _makeDirectCall("100")),
-            _buildEmergencyTile(Icons.local_hospital_outlined, "Nearest Hospital", "7942689918",Appcolor.primarycolor,() => _makeDirectCall("+917942689918")),
+            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall(no.ambulance)),
+            _buildEmergencyTile(Icons.local_fire_department, "Fire Brigade", "101", Appcolor.primarycolor,() => _makeDirectCall(no.fire_brigade)),
+            _buildEmergencyTile(Icons.local_police, "Police", "100", Appcolor.primarycolor,() => _makeDirectCall(no.police)),
+            _buildEmergencyTile(Icons.local_hospital_outlined, "Nearest Hospital", "7942689918",Appcolor.primarycolor,() => _makeDirectCall(no.Near_hospital)),
           ],
         ),
       ),

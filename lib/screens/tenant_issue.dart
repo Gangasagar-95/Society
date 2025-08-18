@@ -8,6 +8,7 @@ import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/call_button.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/custom_widget/number.dart';
 import 'package:ss/custom_widget/question_text.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -23,6 +24,7 @@ class _TenantissueState extends State<Tenantissue> {
   bool showError = false;
   final descriptionCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+  final Number no = Number();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     if (await Permission.phone.request().isGranted) {
@@ -151,12 +153,12 @@ class _TenantissueState extends State<Tenantissue> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall("+917822027057"),
+                      onPressed: () => _makeDirectCall(no.secratery),
                     ),
                     SizedBox(width: 10),
                     CallButton(
                       label: "house owner",
-                      onPressed: () => _makeDirectCall("02462234405"),
+                      onPressed: () => _makeDirectCall(no.house_owner),
                     ),
                   ],
                 ),

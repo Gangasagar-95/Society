@@ -3,10 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/contact_card.dart';
+import 'package:ss/custom_widget/number.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CallCarpenter extends StatefulWidget {
-  const CallCarpenter({super.key});
+  final Number no = Number();
+ CallCarpenter({super.key});
 
   @override
   State<CallCarpenter> createState() => _CallCarpenterState();
@@ -22,28 +24,28 @@ class _CallCarpenterState extends State<CallCarpenter> {
       "role": "Carpenter",
       "availableTime": "9am to 9pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07304713934",
     },
     {
       "name": "Shiv Patre",
       "role": "Carpenter",
       "availableTime": "12pm to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07304713934",
     },
     {
       "name": "Ajay Rathi",
       "role": "Carpenter",
       "availableTime": "11am to 4pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07304713934",
     },
     {
       "name": "Suraj Tambare",
       "role": "Carpenter",
       "availableTime": "9am to 10pm",
       "address": "Nanded",
-      "phone": "+917822027057",
+      "phone": "07304713934",
     },
   ];
 

@@ -9,6 +9,7 @@ import 'package:ss/custom_widget/call_button.dart';
 import 'package:ss/custom_widget/custom_button.dart';
 //import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/custom_widget/number.dart';
 import 'package:ss/custom_widget/question_text.dart';
 
 import 'package:url_launcher/url_launcher.dart';
@@ -25,6 +26,7 @@ class _OthersProblemState extends State<OthersProblem> {
   bool showError = false;
   final descriptionCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
+  final Number no = Number();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
@@ -147,12 +149,12 @@ class _OthersProblemState extends State<OthersProblem> {
                   children: [
                     CallButton(
                       label: "Secretary",
-                      onPressed: () => _makeDirectCall("+917822027057"),
+                      onPressed: () => _makeDirectCall(no.secratery),
                     ),
                     SizedBox(width: 10),
                     CallButton(
                       label: "Municipality",
-                      onPressed: () => _makeDirectCall("02462234405"),
+                      onPressed: () => _makeDirectCall(no.municipality),
                     ),
                   ],
                 ),
