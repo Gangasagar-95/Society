@@ -51,7 +51,7 @@ class Dashscreen extends StatelessWidget {
                         SizedBox(width: 15),
                         CustomCircle(
                           label: "Maid",
-                          image: "assets/images/maid.jpg",
+                          image: "assets/images/maid2.jpg",
                           onTap: () {
                             Get.toNamed(Approutes.callmaid);
                           },
@@ -59,7 +59,7 @@ class Dashscreen extends StatelessWidget {
                         SizedBox(width: 15),
                         CustomCircle(
                           label: "Carpenter",
-                          image: "assets/images/carpainter.jpg",
+                          image: "assets/images/carpenter.jpg",
                           onTap: () {
                             Get.toNamed(Approutes.callcarpenter);
                           },

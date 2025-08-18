@@ -20,9 +20,10 @@ class OthersProblem extends StatefulWidget {
 }
 
 class _OthersProblemState extends State<OthersProblem> {
-
   String? selectedIssue;
   bool showError = false;
+  final descriptionCtrl = TextEditingController();
+  final _formkey = GlobalKey<FormState>();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
     // Request permission
@@ -46,97 +47,107 @@ class _OthersProblemState extends State<OthersProblem> {
         backgroundColor: Appcolor.bgcolor,
         //leading: Icon(Icons.arrow_back),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(25),
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Center(
-                child: Image.asset(
-                  "assets/images/others_problem.jpg",
-                  height: 150,
-                  width: 150,
-                ),
-              ),
-              Center(
-                child: Text(
-                  "Other Problem",
-                  style: GoogleFonts.poppins(
-                    fontSize: 24,
-                    fontWeight: FontWeight.w500,
+      body: 
+      Form(
+        key: _formkey,
+        child: Padding(
+          padding: const EdgeInsets.all(25),
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Center(
+                  child: Image.asset(
+                    "assets/images/others_problem.jpg",
+                    height: 150,
+                    width: 150,
                   ),
                 ),
-              ),
-              SizedBox(height: 20),
-              CustomDropdown(
-                title: 'Category',
-                items: [
-                  "Security issue",
-                  "Infrastructure issue",
-                  "Maintenance issue",
-                  "Community issue",
-                  "Other",
-                ],
-                hintText: 'select category',
-                onChanged: (value) {
-                  setState(() {
-                    selectedIssue = value;
-                    showError = false;
-                  });
-                },
-              ),
-              if (showError)
-                Padding(
-                  padding: const EdgeInsets.only(top: 8.0),
+                Center(
                   child: Text(
-                    "⚠ Please select a category",
-                    style: TextStyle(color: Colors.red, fontSize: 14),
+                    "Other Problem",
+                    style: GoogleFonts.poppins(
+                      fontSize: 24,
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ),
-              SizedBox(height: 20),
-              CustomTextField(label: "Description", hint: "Complaint details"),
-              SizedBox(height: 20),
-              CustomButton(text: "Submit Complaint", onPressed: () {
-                  if (selectedIssue == null) {
+                SizedBox(height: 20),
+                CustomDropdown(
+                  title: 'Category',
+                  items: [
+                    "Security issue",
+                    "Infrastructure issue",
+                    "Maintenance issue",
+                    "Community issue",
+                    "Other",
+                  ],
+                  hintText: 'select category',
+                  onChanged: (value) {
                     setState(() {
-                      showError = true;
+                      selectedIssue = value;
+                      showError = false;
                     });
-                  } else {
-                   Get.snackbar(
-                      "Complaint Submitted",
-                      "for $selectedIssue",
-                      backgroundColor: Color.fromARGB(255, 198, 157, 255),
-                    );
-                  }
-                },),
-              SizedBox(height: 25),
-              Text(
-                "Need help ?",
-                textAlign: TextAlign.left,
-                style: GoogleFonts.poppins(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w500,
-                  color: Appcolor.pcolor,
+                  },
                 ),
-              ),
-              SizedBox(height: 10),
-              Row(
-                children: [
-                  CallButton(
-                    label: "Secretary",
-                    onPressed: () => _makeDirectCall("+917822027057"),
+                if (showError)
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      "⚠ Please select a category",
+                      style: TextStyle(color: Colors.red, fontSize: 14),
+                    ),
                   ),
-                  SizedBox(width: 10),
-                  CallButton(
-                    label: "Municipality",
-                    onPressed: () => _makeDirectCall("02462234405"),
+                SizedBox(height: 20),
+                CustomTextField(label: "Description", hint: "Complaint details"),
+                SizedBox(height: 20),
+                CustomButton(
+                  text: "Submit Complaint",
+                  onPressed: () {
+                    if (_formkey.currentState!.validate()) {
+                      if (selectedIssue == null) {
+                        setState(() {
+                          showError = true;
+                        });
+                      } else {
+                        Get.snackbar(
+                          "Complaint Submitted",
+                          "for $selectedIssue",
+                          backgroundColor: Color.fromARGB(255, 198, 157, 255),
+                        );
+                      }
+                    }
+                    ;
+                  },
+                ),
+                SizedBox(height: 25),
+                Text(
+                  "Need help ?",
+                  textAlign: TextAlign.left,
+                  style: GoogleFonts.poppins(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                    color: Appcolor.pcolor,
                   ),
-                ],
-              ),
-              SizedBox(height: 20),
-            ],
+                ),
+                SizedBox(height: 10),
+                Row(
+                  children: [
+                    CallButton(
+                      label: "Secretary",
+                      onPressed: () => _makeDirectCall("+917822027057"),
+                    ),
+                    SizedBox(width: 10),
+                    CallButton(
+                      label: "Municipality",
+                      onPressed: () => _makeDirectCall("02462234405"),
+                    ),
+                  ],
+                ),
+                SizedBox(height: 20),
+              ],
+            ),
           ),
         ),
       ),
