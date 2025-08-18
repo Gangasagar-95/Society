@@ -4,8 +4,9 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
-import 'package:ss/custom_widget/dropdown2.dart';
+
 import 'package:ss/custom_widget/question_text.dart';
+import 'package:ss/custom_widget/role_dropdown.dart';
 
 class Informationscreen extends StatefulWidget {
   const Informationscreen({super.key});
@@ -157,7 +158,7 @@ class _InformationscreenState extends State<Informationscreen> {
                   ),
 
                   SizedBox(height: 14),
-                  CustomDropdown(
+                  RoleDropdown(
                     title: 'Role',
                     items: ["Recident", "Secratery", "Tenent", "House owner"],
                     hintText: 'Select role',

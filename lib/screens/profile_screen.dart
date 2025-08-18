@@ -277,7 +277,7 @@ class _ProfileState extends State<Profile> {
               // Obx(() {
                 //return 
                 TextShow(
-                  text: "${infoctrl.nameee}",
+                  text: "${infoctrl.nameCtrl.text}",
                   label: "Full Name",
                 ), 
               // }),

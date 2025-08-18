@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
 
-class CustomDropdown extends StatefulWidget {
+class RoleDropdown extends StatefulWidget {
   final String title;
   final List<String> items;
   final String hintText;
@@ -13,7 +13,7 @@ class CustomDropdown extends StatefulWidget {
   final String? selectedValue;
   final bool showError;
 
-  const CustomDropdown({
+  const RoleDropdown({
     super.key,
     required this.title,
     required this.items,
@@ -24,10 +24,10 @@ class CustomDropdown extends StatefulWidget {
   });
 
   @override
-  State<CustomDropdown> createState() => _CustomDropdownState();
+  State<RoleDropdown> createState() => _CustomDropdownState();
 }
 
-class _CustomDropdownState extends State<CustomDropdown> {
+class _CustomDropdownState extends State<RoleDropdown> {
   final infoctrl = Get.put(InformationCtrl());
   String? _selectedValue;
 
@@ -77,7 +77,7 @@ class _CustomDropdownState extends State<CustomDropdown> {
               onChanged: (value) {
                 setState(() {
                   _selectedValue = value;
-                  //infoctrl.roleCtrl.text = value ?? '';
+                  infoctrl.roleCtrl.text = value ?? '';
                 });
                 if (widget.onChanged != null) {
                   widget.onChanged!(value);
