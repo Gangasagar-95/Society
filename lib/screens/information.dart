@@ -22,7 +22,26 @@ class _InformationscreenState extends State<Informationscreen> {
 
   void continuee() {
     if (_formKey.currentState!.validate()) {
-      infoctrl.continuee();
+       if (selectedRole == null) {
+                        setState(() {
+                          showError = true;
+                        });
+                      } else {
+                        // ✅ proceed with complaint submission
+                        Get.snackbar(
+                          "Login Successful",
+                          "Hello ${infoctrl.nameCtrl.text}, welcome to Society Setu ",
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            198,
+                            157,
+                            255,
+                          ),
+                          //colorText: Appcolor.bgcolor
+                        );
+                        infoctrl.continuee();
+                      }
+      
       // You can save data here if needed
       // Example:
       // print(infoctrl.nameCtrl.text);
@@ -145,7 +164,7 @@ class _InformationscreenState extends State<Informationscreen> {
                     onChanged: (value) {
                       setState(() {
                         selectedRole = value;
-                        infoctrl.nameee = selectedRole;
+                        //infoctrl.nameee = selectedRole;
                         showError = false;
                       });
                     },
