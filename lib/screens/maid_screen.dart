@@ -23,6 +23,8 @@ class _MaidScreenState extends State<MaidScreen> {
   String? selectedCategory; //  track selected value
   bool showError = false; //  track validation state
   final descriptionCtrl = TextEditingController();
+  final dateCtrl = TextEditingController();
+
   final _formkey = GlobalKey<FormState>();
 
   Future<void> _makeDirectCall(String phoneNumber) async {
@@ -43,8 +45,7 @@ class _MaidScreenState extends State<MaidScreen> {
     return Scaffold(
       backgroundColor: Appcolor.bgcolor,
       appBar: AppBar(backgroundColor: Appcolor.bgcolor),
-      body: 
-      Form(
+      body: Form(
         key: _formkey,
         child: Padding(
           padding: const EdgeInsets.all(25),
@@ -69,9 +70,9 @@ class _MaidScreenState extends State<MaidScreen> {
                     ),
                   ),
                 ),
-        
+
                 const SizedBox(height: 20),
-        
+
                 // ✅ CustomDropdown with validation
                 CustomDropdown(
                   title: 'Category',
@@ -93,12 +94,24 @@ class _MaidScreenState extends State<MaidScreen> {
                     });
                   },
                 ),
-        
+
                 const SizedBox(height: 20),
                 QuestionText(
                   label: "Date of absence",
                   hint: "23/08/2025",
-                  controller: descriptionCtrl,
+                  controller: dateCtrl,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return "date is required";
+                    }
+                    final regex = RegExp(
+                      r'^([0-2][0-9]|(3)[0-1])/([0][1-9]|1[0-2])/\d{4}$',
+                    );
+                    if (!regex.hasMatch(value.trim())) {
+                      return "Enter date in dd/mm/yyyy format";
+                    }
+                    return null;
+                  },
                 ),
                 //CustomTextField(label: "Date of absence", hint: "23/07/2025"),
                 //const SizedBox(height: 20),
@@ -106,10 +119,16 @@ class _MaidScreenState extends State<MaidScreen> {
                   label: "Description",
                   hint: "Complaint details",
                   controller: descriptionCtrl,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return "description is required";
+                    }
+                    return null;
+                  },
                 ),
                 //CustomTextField(label: "Description", hint: "Complaint details"),
                 const SizedBox(height: 20),
-        
+
                 // ✅ Use your CustomButton
                 CustomButton(
                   text: "Submit Complaint",
@@ -137,9 +156,9 @@ class _MaidScreenState extends State<MaidScreen> {
                     ;
                   },
                 ),
-        
+
                 const SizedBox(height: 30),
-        
+
                 Text(
                   "Need help ?",
                   textAlign: TextAlign.left,
@@ -149,7 +168,7 @@ class _MaidScreenState extends State<MaidScreen> {
                     color: Appcolor.pcolor,
                   ),
                 ),
-        
+
                 const SizedBox(height: 10),
                 MyIconButton(
                   label: "Search for maid",
@@ -158,7 +177,7 @@ class _MaidScreenState extends State<MaidScreen> {
                   },
                 ),
                 const SizedBox(height: 10),
-        
+
                 Row(
                   children: [
                     CallButton(

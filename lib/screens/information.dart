@@ -97,7 +97,7 @@ class Informationscreen extends StatelessWidget {
                     controller: infoctrl.flatCtrl,
                     validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return "Name is required";
+                    return "Flat no is required";
                   }
                   return null;
                 },
@@ -123,7 +123,7 @@ class Informationscreen extends StatelessWidget {
                     controller: infoctrl.addressCtrl,
                     validator: (value) {
                   if (value == null || value.trim().isEmpty) {
-                    return "Name is required";
+                    return "Address is required";
                   }
                   return null;
                 },

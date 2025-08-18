@@ -7,8 +7,9 @@ import 'package:permission_handler/permission_handler.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/custom_widget/call_button.dart';
 import 'package:ss/custom_widget/custom_button.dart';
-import 'package:ss/custom_widget/CustomTextField.dart';
+//import 'package:ss/custom_widget/CustomTextField.dart';
 import 'package:ss/custom_widget/dropdown2.dart';
+import 'package:ss/custom_widget/question_text.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -100,7 +101,17 @@ class _OthersProblemState extends State<OthersProblem> {
                     ),
                   ),
                 SizedBox(height: 20),
-                CustomTextField(label: "Description", hint: "Complaint details"),
+                QuestionText(
+                  label: "Description",
+                  hint: "Complaint details",
+                  controller: descriptionCtrl,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return "description is required";
+                    }
+                    return null;
+                  },
+                ),
                 SizedBox(height: 20),
                 CustomButton(
                   text: "Submit Complaint",

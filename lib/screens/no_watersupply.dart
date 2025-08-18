@@ -94,6 +94,12 @@ class _NoWatersupplyState extends State<NoWatersupply> {
                   label: "Description",
                   hint: "Complaint details",
                   controller: descriptionCtrl,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return "description is required";
+                    }
+                    return null;
+                  },
                 ),
 
                 const SizedBox(height: 20),

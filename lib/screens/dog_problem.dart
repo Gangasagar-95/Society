@@ -93,6 +93,12 @@ class _DogsScreenState extends State<DogsScreen> {
                   label: "Description",
                   hint: "Complaint details",
                   controller: descriptionCtrl,
+                  validator: (value) {
+                    if (value == null || value.trim().isEmpty) {
+                      return "description is required";
+                    }
+                    return null;
+                  },
                 ),
 
                 //CustomTextField(label: "Description", hint: "Complaint details"),
