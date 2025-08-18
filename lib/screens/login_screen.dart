@@ -3,9 +3,10 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+//import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/eye_icon_controller.dart';
+import 'package:ss/Controller/loginctrl.dart';
 //import 'package:ss/Controller/logincontroller.dart';
 import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/custom_button.dart';
@@ -14,21 +15,22 @@ import 'package:ss/custom_widget/logo_containers.dart';
 class LoginScreen extends StatelessWidget {
   final eyeIconcontrollerobj = Get.put(EyeIconController());
   //final logincontroller = Get.put(LoginController());
+  final loginctrl = Get.put(LoginCtrl());
 
-  final emailCtrl = TextEditingController();
-  final passwordCtrl = TextEditingController();
+  //final emailCtrl = TextEditingController();
+  //final passwordCtrl = TextEditingController();
   final _formkey = GlobalKey<FormState>();
 
   void login() async {
-  if (_formkey.currentState!.validate()) {
-    final prefs = await SharedPreferences.getInstance();
-    await prefs.setBool("isLoggedIn", true);
+    if (_formkey.currentState!.validate()) {
+      loginctrl.loginn();
+      // final prefs = await SharedPreferences.getInstance();
+      // await prefs.setBool("isLoggedIn", true);
 
-    Get.offNamed(Approutes.informationscreen); 
-    // or Approutes.dashboard / Approutes.tabs depending on flow
+      // Get.offNamed(Approutes.informationscreen);
+      // or Approutes.dashboard / Approutes.tabs depending on flow
+    }
   }
-}
-
 
   LoginScreen({super.key});
 
@@ -48,15 +50,14 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   Center(
                     child: Column(
-                      
                       children: [
-                        SizedBox(height: 80,),
+                        SizedBox(height: 80),
                         Image.asset(
                           "assets/images/newlogo.png",
                           height: 100,
                           width: 100,
                         ),
-                        SizedBox(height: 30,),
+                        SizedBox(height: 30),
                         Text(
                           "Login to your Account",
                           style: TextStyle(
@@ -64,7 +65,7 @@ class LoginScreen extends StatelessWidget {
                             fontSize: 24,
                           ),
                         ),
-                        SizedBox(height: 15,),
+                        SizedBox(height: 15),
                         Padding(
                           padding: const EdgeInsets.only(
                             // left: 20,
@@ -73,7 +74,7 @@ class LoginScreen extends StatelessWidget {
                             bottom: 20,
                           ),
                           child: TextFormField(
-                            controller: emailCtrl,
+                            controller: loginctrl.emailCtrl,
                             decoration: InputDecoration(
                               hintText: "Enter your email",
                               prefixIcon: Icon(
@@ -81,7 +82,7 @@ class LoginScreen extends StatelessWidget {
                                 size: 20,
                                 color: Colors.grey,
                               ),
-                               enabledBorder: OutlineInputBorder(
+                              enabledBorder: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                   color: Appcolor.primarycolor,
                                 ),
@@ -108,7 +109,7 @@ class LoginScreen extends StatelessWidget {
                             bottom: 30,
                           ),
                           child: TextFormField(
-                            controller: passwordCtrl,
+                            controller: loginctrl.passwordCtrl,
                             obscureText: eyeIconcontrollerobj.eye.value,
                             decoration: InputDecoration(
                               enabledBorder: OutlineInputBorder(

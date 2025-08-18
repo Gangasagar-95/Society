@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-//import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 
@@ -7,14 +6,15 @@ class QuestionText extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
-  // final bool isDropdown;
-  // final Widget? suffixIcon;
+  final String? Function(String?)? validator; 
 
   QuestionText({
     super.key,
     required this.label,
     required this.hint,
     required this.controller,
+    this.validator,
+    //this.validator,
     // this.isDropdown = false,
     // this.suffixIcon,
   });
@@ -29,6 +29,7 @@ class QuestionText extends StatelessWidget {
         children: [
           Text(label, style: GoogleFonts.poppins(fontSize: 18)),
           TextFormField(
+            controller: controller,
             decoration: InputDecoration(
               hintText: hint,
               hintStyle: GoogleFonts.poppins(
@@ -46,15 +47,18 @@ class QuestionText extends StatelessWidget {
                 borderSide: BorderSide(color: Appcolor.primarycolor),
               ),
             ),
-            validator: (value) {
-              if (value == null || value.trim().isEmpty) {
-                return "This field is required";
-              }
-              return null;
-            },
+            validator: validator 
+            // (value) {
+            //   if (value == null || value.trim().isEmpty) {
+            //     return "This field is required";
+            //   }
+            //   return null;
+            // },
           ),
         ],
       ),
     );
   }
+  
+  
 }
