@@ -5,7 +5,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
 
-
 import 'package:ss/custom_widget/question_text.dart';
 import 'package:ss/custom_widget/role_dropdown.dart';
 
@@ -127,13 +126,14 @@ class _InformationscreenState extends State<Informationscreen> {
                   // Phone Number
                   QuestionText(
                     label: "Phone Number",
-                    hint: "+91 XXXX XXX XXX",
+                    hint: "XXXX XXX XXX",
                     controller: infoctrl.phoneCtrl,
+                    keyboardtype: TextInputType.phone,
                     validator: (value) {
                       if (value == null || value.trim().isEmpty) {
                         return "Phone number is required";
-                      } else if (value.trim().length < 10) {
-                        return "Phone number must be at least 10 digits";
+                      } else if (value.trim().length < 10 || value.trim().length > 10) {
+                        return "Phone number should be 10 digits";
                       }
                       return null;
                     },
@@ -164,8 +164,6 @@ class _InformationscreenState extends State<Informationscreen> {
                         selectedRole = value;
                         //infoctrl.nameee = selectedRole;
                         showError = false;
-                        
-                        
                       });
                     },
                   ),

@@ -6,14 +6,16 @@ class QuestionText extends StatelessWidget {
   final TextEditingController controller;
   final String label;
   final String hint;
-  final String? Function(String?)? validator; 
+  final String? Function(String?)? validator;
+  final TextInputType keyboardtype;
 
   QuestionText({
     super.key,
     required this.label,
     required this.hint,
     required this.controller,
-    this.validator,
+    this.validator, 
+     this.keyboardtype=TextInputType.text,
     //this.validator,
     // this.isDropdown = false,
     // this.suffixIcon,
@@ -30,6 +32,7 @@ class QuestionText extends StatelessWidget {
           Text(label, style: GoogleFonts.poppins(fontSize: 18)),
           TextFormField(
             controller: controller,
+            keyboardType: keyboardtype,
             decoration: InputDecoration(
               hintText: hint,
               hintStyle: GoogleFonts.poppins(
@@ -47,7 +50,7 @@ class QuestionText extends StatelessWidget {
                 borderSide: BorderSide(color: Appcolor.primarycolor),
               ),
             ),
-            validator: validator 
+            validator: validator,
             // (value) {
             //   if (value == null || value.trim().isEmpty) {
             //     return "This field is required";
@@ -59,6 +62,4 @@ class QuestionText extends StatelessWidget {
       ),
     );
   }
-  
-  
 }

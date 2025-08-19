@@ -4,19 +4,14 @@ import 'package:android_intent_plus/android_intent.dart';
 import 'package:android_intent_plus/flag.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-//import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-//import 'package:http/http.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:permission_handler/permission_handler.dart' as AppSettings;
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:ss/Color/app_colors.dart';
 import 'package:ss/Controller/information_ctrl.dart';
 import 'package:ss/Controller/loginctrl.dart';
 import 'package:ss/Routes/app_routes.dart';
-//import 'package:ss/custom_widget/CustomTextField.dart';
-//import 'package:ss/Routes/app_routes.dart';
 import 'package:ss/custom_widget/text_show.dart';
 import 'package:ss/screens/tabs.dart';
 
@@ -39,8 +34,6 @@ class _ProfileState extends State<Profile> {
   final loginctrl = Get.put(LoginCtrl());
   final infoctrl = Get.put(InformationCtrl());
 
-  
-
   Future<void> logout() async {
     Get.defaultDialog(
       title: "Logout",
@@ -55,6 +48,26 @@ class _ProfileState extends State<Profile> {
       },
       onCancel: () {},
     );
+  }
+
+  File? _image;
+
+  Future<void> _pickImage() async {
+    final pickedFile = await ImagePicker().pickImage(
+      source: ImageSource.gallery,
+    );
+
+    if (pickedFile != null) {
+      setState(() {
+        _image = File(pickedFile.path);
+      });
+    }
+  }
+
+  void _removeImage() {
+    setState(() {
+      _image = null; // reset to default
+    });
   }
 
   @override
@@ -249,19 +262,52 @@ class _ProfileState extends State<Profile> {
             children: [
               SizedBox(height: 40),
 
+              // Center(
+              //   child: Container(
+              //     height: 100,
+              //     width: 100,
+              //     decoration: BoxDecoration(
+              //       shape: BoxShape.circle,
+              //       image: DecorationImage(
+              //         image: AssetImage("assets/images/profile.webp"),
+              //         fit: BoxFit.fill,
+              //       ),
+              //     ),
+              //   ),
+              // ),
               Center(
-                child: Container(
-                  height: 100,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: DecorationImage(
-                      image: AssetImage("assets/images/profile.webp"),
-                      fit: BoxFit.fill,
-                    ),
+                child: GestureDetector(
+                  onTap: _pickImage,
+                  child: CircleAvatar(
+                    radius: 60,
+                    backgroundImage: _image != null ? FileImage(_image!) : null,
+                    child: _image == null
+                        ? const Icon(Icons.person, size: 60)
+                        : null,
                   ),
                 ),
               ),
+              if (_image !=
+                  null) // 👈 show cancel button only if image selected
+                Positioned(
+                  right: 0,
+                  bottom: 0,
+                  child: GestureDetector(
+                    onTap: _removeImage,
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        color: Colors.red,
+                      ),
+                      padding: const EdgeInsets.all(6),
+                      child: const Icon(
+                        Icons.close,
+                        color: Colors.white,
+                        size: 20,
+                      ),
+                    ),
+                  ),
+                ),
               SizedBox(height: 20),
 
               Text(
@@ -275,19 +321,19 @@ class _ProfileState extends State<Profile> {
               SizedBox(height: 10),
               //CustomTextField(label: "Full Name", hint: "$name"),
               // Obx(() {
-                //return 
-                TextShow(
-                  text: "${infoctrl.nameCtrl.text}",
-                  label: "Full Name",
-                ), 
+              //return
+              TextShow(text: "${infoctrl.nameCtrl.text}", label: "Full Name"),
               // }),
               SizedBox(height: 10),
               //CustomTextField(label: "Flat no/House no", hint: flat),
-              TextShow(text: "${infoctrl.flatCtrl.text}", label: "Flat no/House no"),
+              TextShow(
+                text: "${infoctrl.flatCtrl.text}",
+                label: "Flat no/House no",
+              ),
               SizedBox(height: 10),
               //CustomTextField(label: "Address", hint: address),
               TextShow(text: "${infoctrl.addressCtrl.text}", label: "Address"),
-              SizedBox(height: 10,),
+              SizedBox(height: 10),
               TextShow(text: "${infoctrl.roleCtrl.text}", label: "Role"),
 
               SizedBox(height: 20),
@@ -312,5 +358,3 @@ class _ProfileState extends State<Profile> {
     );
   }
 }
-
-
