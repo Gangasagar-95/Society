@@ -142,6 +142,7 @@ class _GarbageState extends State<Garbage> {
                 SizedBox(height: 10),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CallButton(
                       label: "Secretary",

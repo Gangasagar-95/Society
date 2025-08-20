@@ -262,52 +262,65 @@ class _ProfileState extends State<Profile> {
             children: [
               SizedBox(height: 40),
 
-              // Center(
-              //   child: Container(
-              //     height: 100,
-              //     width: 100,
-              //     decoration: BoxDecoration(
-              //       shape: BoxShape.circle,
-              //       image: DecorationImage(
-              //         image: AssetImage("assets/images/profile.webp"),
-              //         fit: BoxFit.fill,
-              //       ),
-              //     ),
-              //   ),
-              // ),
               Center(
-                child: GestureDetector(
-                  onTap: _pickImage,
-                  child: CircleAvatar(
-                    radius: 60,
-                    backgroundImage: _image != null ? FileImage(_image!) : null,
-                    child: _image == null
-                        ? const Icon(Icons.person, size: 60)
-                        : null,
-                  ),
-                ),
-              ),
-              if (_image !=
-                  null) // 👈 show cancel button only if image selected
-                Positioned(
-                  right: 0,
-                  bottom: 0,
-                  child: GestureDetector(
-                    onTap: _removeImage,
-                    child: Container(
-                      decoration: const BoxDecoration(
-                        shape: BoxShape.circle,
-                        color: Colors.red,
-                      ),
-                      padding: const EdgeInsets.all(6),
-                      child: const Icon(
-                        Icons.close,
-                        color: Colors.white,
-                        size: 20,
+                child: Stack(
+                  children: [
+                    GestureDetector(
+                      onTap: _pickImage,
+                      child: CircleAvatar(
+                        radius: 60,
+                        backgroundImage: _image != null
+                            ? FileImage(_image!)
+                            : null,
+                        child: _image == null
+                            ? const Icon(Icons.person, size: 60)
+                            : null,
                       ),
                     ),
-                  ),
+
+                    // Edit icon positioned bottom-right
+                    Positioned(
+                      bottom: 0,
+                         right: 1,
+                      child: PopupMenuButton<String>(
+                        icon: const CircleAvatar(
+                          radius: 16,
+                          backgroundColor: Colors.grey,
+                          child: Icon(
+                            Icons.edit,
+                            color: Colors.white,
+                            size: 16,
+                          ),
+                        ),
+                        onSelected: (value) {
+                          if (value == 'edit') {
+                            _pickImage();
+                          } else if (value == 'remove') {
+                            _removeImage();
+                          }
+                        },
+                        itemBuilder: (BuildContext context) => [
+                          const PopupMenuItem<String>(
+                            value: 'edit',
+                            child: Text(
+                              'Edit Profile Picture',
+                              style: TextStyle(color: Appcolor.textcolor),
+                            ),
+                          ),
+                          const PopupMenuItem<String>(
+                            value: 'remove',
+                            child: Text(
+                              'Remove Profile Picture',
+                              style: TextStyle(color: Appcolor.textcolor),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
+              ),
+
               SizedBox(height: 20),
 
               Text(

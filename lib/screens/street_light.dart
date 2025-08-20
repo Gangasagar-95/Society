@@ -151,6 +151,7 @@ class _StreetlightState extends State<Streetlight> {
                 SizedBox(height: 10),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CallButton(
                       label: "Secretary",

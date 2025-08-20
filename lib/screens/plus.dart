@@ -140,6 +140,7 @@ class _OthersProblemState extends State<PlusScreen> {
                 ),
                 SizedBox(height: 10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CallButton(
                       label: "Secretary",

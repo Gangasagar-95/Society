@@ -146,6 +146,7 @@ class _OthersProblemState extends State<OthersProblem> {
                 ),
                 SizedBox(height: 10),
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CallButton(
                       label: "Secretary",

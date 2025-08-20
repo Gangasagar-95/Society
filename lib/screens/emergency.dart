@@ -44,7 +44,7 @@ class EmergencyContactScreen extends StatelessWidget {
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
-            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Abmulance"]!)),
+            _buildEmergencyTile(Icons.local_hospital, "Ambulance", "108", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Ambulance"]!)),
             _buildEmergencyTile(Icons.local_fire_department, "Fire Brigade", "101", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Fire Brigade"]!)),
             _buildEmergencyTile(Icons.local_police, "Police", "100", Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Police"]!)),
             _buildEmergencyTile(Icons.local_hospital_outlined, "Nearest Hospital", "7942689918",Appcolor.primarycolor,() => _makeDirectCall(Numbers.rolePhoneNumbers["Nearby Hospital"]!)),

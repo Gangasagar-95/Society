@@ -16,6 +16,8 @@ class CustomOutlineButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return InkWell(
       onTap: onPressed,
       borderRadius: BorderRadius.circular(20),
@@ -23,8 +25,10 @@ class CustomOutlineButton extends StatelessWidget {
       child: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Container(
-          height: 230,
-          width: 170,
+          height: size.height * 0.28, // ~28% of screen height
+        width: size.width * 0.44, 
+          // height: 230,
+          // width: 170,
           padding: EdgeInsets.only(left: 20, right: 20),
           decoration: BoxDecoration(
             color: Colors.white,

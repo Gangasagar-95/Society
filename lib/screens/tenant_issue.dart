@@ -150,6 +150,7 @@ class _TenantissueState extends State<Tenantissue> {
                 SizedBox(height: 10),
 
                 Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CallButton(
                       label: "Secretary",

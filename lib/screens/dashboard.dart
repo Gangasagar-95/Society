@@ -93,86 +93,99 @@ class Dashscreen extends StatelessWidget {
                   ),
 
                   SizedBox(height: 20),
-                  Row(
-                    children: [
-                      CustomOutlineButton(
-                        title: "Maid Not Coming",
-
-                        imagePath: "assets/images/maid.jpg",
-                        onPressed: () {
-                          //tabsKey.currentState?.openSubScreen(MaidScreen());
-                          Get.toNamed(Approutes.maidscreen);
-                        },
-                      ),
-                      SizedBox(width: 15),
-                      CustomOutlineButton(
-                        title: "Street light not working",
-                        imagePath: "assets/images/lamp_light.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.streetlightscreen);
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      CustomOutlineButton(
-                        title: "Garbage not picked up",
-                        imagePath: "assets/images/Garbage_problem.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.garbagescreen);
-                        },
-                      ),
-                      SizedBox(width: 15),
-                      CustomOutlineButton(
-                        title: "Dog Menace",
-                        imagePath: "assets/images/dog_problem.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.dogproblemscreen);
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      CustomOutlineButton(
-                        title: "No water supply",
-                        imagePath: "assets/images/no_water_supply.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.nowaterscreen);
-                        },
-                      ),
-                      SizedBox(width: 15),
-                      CustomOutlineButton(
-                        title: "tenant issues",
-                        imagePath: "assets/images/tenant_issues.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.tenantissuescreen);
-                        },
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 15),
-                  Row(
-                    children: [
-                      CustomOutlineButton(
-                        title: "Others Problem",
-                        imagePath: "assets/images/others_problem.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.othersproblemscreen);
-                        },
-                      ),
-                      SizedBox(width: 15),
-                      CustomOutlineButton(
-                        title: "Power Cut Schedual",
-                        imagePath: "assets/images/power_cut.jpg",
-                        onPressed: () {
-                          Get.toNamed(Approutes.powercut);
-                        },
-                      ),
-                    ],
+                  Center(
+                    child: Column(
+                      //crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            CustomOutlineButton(
+                              title: "Maid Not Coming",
+                        
+                              imagePath: "assets/images/maid.jpg",
+                              onPressed: () {
+                                //tabsKey.currentState?.openSubScreen(MaidScreen());
+                                Get.toNamed(Approutes.maidscreen);
+                              },
+                            ),
+                            SizedBox(width: 15),
+                            CustomOutlineButton(
+                              title: "Street light not working",
+                              imagePath: "assets/images/lamp_light.jpg",
+                              onPressed: () {
+                                Get.toNamed(Approutes.streetlightscreen);
+                              },
+                            ),
+                          ],
+                        ),
+                      
+                                        
+                                      SizedBox(height: 15),
+                                      Row(
+                                         mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                    CustomOutlineButton(
+                      title: "Garbage not picked up",
+                      imagePath: "assets/images/Garbage_problem.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.garbagescreen);
+                      },
+                    ),
+                    SizedBox(width: 15),
+                    CustomOutlineButton(
+                      title: "Dog Menace",
+                      imagePath: "assets/images/dog_problem.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.dogproblemscreen);
+                      },
+                    ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                         mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                    CustomOutlineButton(
+                      title: "No water supply",
+                      imagePath: "assets/images/no_water_supply.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.nowaterscreen);
+                      },
+                    ),
+                    SizedBox(width: 15),
+                    CustomOutlineButton(
+                      title: "tenant issues",
+                      imagePath: "assets/images/tenant_issues.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.tenantissuescreen);
+                      },
+                    ),
+                                        ],
+                                      ),
+                                      SizedBox(height: 15),
+                                      Row(
+                                         mainAxisAlignment: MainAxisAlignment.center,
+                                        children: [
+                    CustomOutlineButton(
+                      title: "Other Problem",
+                      imagePath: "assets/images/others_problem.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.othersproblemscreen);
+                      },
+                    ),
+                    SizedBox(width: 15),
+                    CustomOutlineButton(
+                      title: "Power Cut Schedual",
+                      imagePath: "assets/images/power_cut.jpg",
+                      onPressed: () {
+                        Get.toNamed(Approutes.powercut);
+                      },
+                    ),
+                                        ],
+                                      ),
+                                      ],
+                    ),
                   ),
                 ],
               ),

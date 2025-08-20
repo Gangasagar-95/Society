@@ -11,10 +11,11 @@ class CallButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return ElevatedButton.icon(
       onPressed: onPressed,
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(160, 50),
+        minimumSize: Size(162, 50),
         backgroundColor: const Color.fromARGB(255, 76, 186, 80), // Button color
         foregroundColor: Colors.white, // Text & icon color
         //padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 12),
